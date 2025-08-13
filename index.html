@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reframe to Rise - 3C MindShift Kit</title>
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiUmVmcmFtZSB0byBSaXNlIiwic2hvcnRfbmFtZSI6IlJlZnJhbWUiLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiM1MjM0NzQiLCJ0aGVtZV9jb2xvciI6IiM2MWQ4ZTYiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhacFpYZENiM2c5SWpBZ01DQXhNREFnTVRBd0lqNDhjbVZqZENCM2FXUjBhRDBpTVRBd0lpQm9aV2xuYUhROUlqRXdNQ0lpSUdacGJHdzlJaU0yTVdRNFpUWWlMejQ4TDNOMlp6ND0iLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzYxZDhlNiIvPjwvc3ZnPg==">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #523474 0%, #3d1a5b 100%);
+            color: white;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 390px;
+            margin: 0 auto;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: #61d8e6;
+        }
+
+        .emotion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .emotion-btn {
+            padding: 15px;
+            border: 2px solid;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+            text-transform: capitalize;
+        }
+
+        .emotion-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Unique neon border colors */
+        .emotion-btn.anxious { border-color: #61d8e6; box-shadow: 0 0 15px rgba(97, 216, 230, 0.5); }
+        .emotion-btn.frustrated { border-color: #ffd700; box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+        .emotion-btn.unworthy { border-color: #e17ee4; box-shadow: 0 0 15px rgba(225, 126, 228, 0.5); }
+        .emotion-btn.ashamed { border-color: #00f5c5; box-shadow: 0 0 15px rgba(0, 245, 197, 0.5); }
+        .emotion-btn.overwhelmed { border-color: #ff8a65; box-shadow: 0 0 15px rgba(255, 138, 101, 0.5); }
+        .emotion-btn.embarrassed { border-color: #ab7bff; box-shadow: 0 0 15px rgba(171, 123, 255, 0.5); }
+        .emotion-btn.heartbroken { border-color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); }
+        .emotion-btn.numb { border-color: #4fc3f7; box-shadow: 0 0 15px rgba(79, 195, 247, 0.5); }
+        .emotion-btn.guilty { border-color: #ecb2af; box-shadow: 0 0 15px rgba(236, 178, 175, 0.5); }
+        .emotion-btn.lonely { border-color: #30f2ac; box-shadow: 0 0 15px rgba(48, 242, 172, 0.5); }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #a49079, #c4a887);
+            color: white;
+            border: 2px solid #ffd700;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 auto;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #523474 0%, #3d1a5b 100%);
+            margin: 10% auto;
+            padding: 30px;
+            border: 2px solid #61d8e6;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 0 30px rgba(97, 216, 230, 0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #61d8e6;
+            margin-bottom: 10px;
+        }
+
+        .modal-body {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 16px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #61d8e6;
+        }
+
+        .reflection, .mantra, .reframe, .action {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: #61d8e6;
+            margin-bottom: 5px;
+        }
+
+        .timer-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #61d8e6;
+        }
+
+        .clock-icon {
+            margin-right: 8px;
+        }
+
+        .modal-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .join-btn {
+            background: linear-gradient(135deg, #a49079, #c4a887);
+            color: white;
+            border: 2px solid #ffd700;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            display: block;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .join-btn:hover {
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .community-text {
+            font-size: 12px;
+            color: #61d8e6;
+            margin-bottom: 15px;
+        }
+
+        .return-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid #61d8e6;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .return-btn:hover {
+            background: rgba(97, 216, 230, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: #61d8e6;
+        }
+
+        /* Zoom feature */
+        .zoom-btn {
+            position: absolute;
+            top: 15px;
+            right: 50px;
+            background: rgba(97, 216, 230, 0.2);
+            border: 1px solid #61d8e6;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #61d8e6;
+            font-size: 18px;
+        }
+
+        .modal-content.zoomed {
+            transform: scale(1.1);
+            max-width: 90vw;
+        }
+
+        /* Locked card styles */
+        .emotion-btn.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .locked-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+
+        @media (max-height: 700px) {
+            .emotion-grid {
+                gap: 10px;
+            }
+            .emotion-btn {
+                padding: 12px;
+                font-size: 13px;
+            }
+        }
+
+        /* PWA Install styles */
+        .install-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #61d8e6, #4fc3f7);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+            z-index: 999;
+        }
+
+        .install-btn {
+            background: white;
+            color: #61d8e6;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Section One: Reframe to Rise -->
+    <div id="section-one" class="section active">
+        <div class="container">
+            <div class="header">
+                <h1 class="title">Reframe to Rise</h1>
+                <p class="subtitle">3C MindShift Kit</p>
+            </div>
+
+            <div class="emotion-grid">
+                <button class="emotion-btn anxious" data-emotion="anxious" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Anxious
+                </button>
+                <button class="emotion-btn frustrated" data-emotion="frustrated" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Frustrated
+                </button>
+                <button class="emotion-btn unworthy" data-emotion="unworthy" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Unworthy
+                </button>
+                <button class="emotion-btn ashamed" data-emotion="ashamed" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Ashamed
+                </button>
+                <button class="emotion-btn overwhelmed" data-emotion="overwhelmed" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Overwhelmed
+                </button>
+                <button class="emotion-btn embarrassed" data-emotion="embarrassed" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Embarrassed
+                </button>
+                <button class="emotion-btn heartbroken" data-emotion="heartbroken" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Heartbroken
+                </button>
+                <button class="emotion-btn numb" data-emotion="numb" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Numb
+                </button>
+                <button class="emotion-btn guilty" data-emotion="guilty" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Guilty
+                </button>
+                <button class="emotion-btn lonely" data-emotion="lonely" data-day="1">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Lonely
+                </button>
+            </div>
+
+            <button class="nav-btn pulse" onclick="showSection('two')">Go Deeper</button>
+        </div>
+    </div>
+
+    <!-- Section Two: Support Tools -->
+    <div id="section-two" class="section">
+        <div class="container">
+            <div class="header">
+                <h1 class="title">Support Tools</h1>
+                <p class="subtitle">3C MindShift Kit</p>
+            </div>
+
+            <div class="emotion-grid">
+                <button class="emotion-btn anxious" data-emotion="anxious" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Anxious
+                </button>
+                <button class="emotion-btn frustrated" data-emotion="frustrated" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Frustrated
+                </button>
+                <button class="emotion-btn unworthy" data-emotion="unworthy" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Unworthy
+                </button>
+                <button class="emotion-btn ashamed" data-emotion="ashamed" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Ashamed
+                </button>
+                <button class="emotion-btn overwhelmed" data-emotion="overwhelmed" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Overwhelmed
+                </button>
+                <button class="emotion-btn embarrassed" data-emotion="embarrassed" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Embarrassed
+                </button>
+                <button class="emotion-btn heartbroken" data-emotion="heartbroken" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Heartbroken
+                </button>
+                <button class="emotion-btn numb" data-emotion="numb" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Numb
+                </button>
+                <button class="emotion-btn guilty" data-emotion="guilty" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Guilty
+                </button>
+                <button class="emotion-btn lonely" data-emotion="lonely" data-day="1" data-section="two">
+                    <span class="locked-overlay" style="display: none;">🔒</span>
+                    Lonely
+                </button>
+            </div>
+
+            <button class="nav-btn pulse" onclick="showSection('one')">Return</button>
+        </div>
+    </div>
+
+    <!-- Modal for cards -->
+    <div id="cardModal" class="modal">
+        <div class="modal-content">
+            <div class="zoom-btn" onclick="toggleZoom()">🔍</div>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="timer-info">
+                <span class="clock-icon">🕐</span>
+                <span>Next reflection available in 24 hours</span>
+            </div>
+            <div class="modal-buttons">
+                <a href="https://www.3c-innergrowth.club" class="join-btn" target="_blank">Join for More</a>
+                <p class="community-text">We Rise As One – a community of like-minded learners and leaders.</p>
+                <button class="return-btn" onclick="closeModal()">Return</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PWA Install Prompt -->
+    <div id="installPrompt" class="install-prompt">
+        <p>Install Reframe to Rise for offline access!</p>
+        <button class="install-btn" onclick="installPWA()">Install</button>
+        <button class="install-btn" onclick="dismissInstall()">Later</button>
+    </div>
+
+    <script>
+        // Sample content data
+        const contentData = {
+            one: {
+                anxious: {
+                    1: {
+                        quote: "Courage is not the absence of fear, but action in spite of it.",
+                        reflection: "Anxiety often signals that something matters to you deeply. Take a moment to breathe slowly and recognize that feeling anxious is natural. Your courage grows each time you move forward despite the fear. Remember, you have overcome challenges before, and you have the strength to handle what lies ahead."
+                    }
+                },
+                frustrated: {
+                    1: {
+                        quote: "Frustration is the first step toward improvement.",
+                        reflection: "When frustration arises, it's often because you care deeply about something. This emotion can be channeled into positive action. Take three deep breaths and ask yourself what this frustration is teaching you. Sometimes the greatest breakthroughs come after our most challenging moments."
+                    }
+                },
+                unworthy: {
+                    1: {
+                        quote: "You are worthy of love and belonging exactly as you are.",
+                        reflection: "The feeling of unworthiness is often louder than it is true. You possess inherent value that doesn't depend on achievements or others' opinions. Today, practice speaking to yourself with the same kindness you'd offer a dear friend. Your worth is not up for debate."
+                    }
+                },
+                ashamed: {
+                    1: {
+                        quote: "Shame cannot survive being spoken.",
+                        reflection: "Shame thrives in secrecy and silence. Remember that everyone makes mistakes and has moments they're not proud of. What matters most is how you learn and grow from these experiences. You are more than your worst moment, and healing begins with self-compassion."
+                    }
+                },
+                overwhelmed: {
+                    1: {
+                        quote: "You don't have to see the whole staircase, just take the first step.",
+                        reflection: "When everything feels too much, focus on just the next small step. Break down your challenges into manageable pieces. Remember that feeling overwhelmed is temporary, and you don't have to carry everything at once. It's okay to ask for help and take things one moment at a time."
+                    }
+                },
+                embarrassed: {
+                    1: {
+                        quote: "What other people think of you is none of your business.",
+                        reflection: "Embarrassment often comes from assuming others are judging us more harshly than they actually are. Most people are too focused on their own lives to dwell on your perceived mistakes. This feeling will pass, and often what feels mortifying today becomes a story you can laugh about tomorrow."
+                    }
+                },
+                heartbroken: {
+                    1: {
+                        quote: "The heart that breaks open can contain the whole universe.",
+                        reflection: "Heartbreak, while painful, opens us to deeper compassion and understanding. Allow yourself to feel this pain without resistance – it's proof that you have loved deeply. Healing takes time, and each day you're building strength you didn't know you had. Your capacity for joy will return."
+                    }
+                },
+                numb: {
+                    1: {
+                        quote: "Sometimes the bravest thing you can do is feel.",
+                        reflection: "Numbness often protects us when emotions feel too intense to handle. It's okay to feel disconnected sometimes. Start small – notice one thing you can see, hear, or touch right now. Gentle movement, music, or reaching out to someone you trust can help you reconnect with your feelings when you're ready."
+                    }
+                },
+                guilty: {
+                    1: {
+                        quote: "Guilt is the gift that keeps on giving – until you choose to return it.",
+                        reflection: "Healthy guilt can guide us toward making amends and better choices. But excessive guilt serves no one. If you've wronged someone, consider making it right. If you're carrying guilt that isn't serving growth, practice forgiveness – especially toward yourself. You deserve to move forward."
+                    }
+                },
+                lonely: {
+                    1: {
+                        quote: "The greatest gift you can give someone is your presence.",
+                        reflection: "Loneliness is a universal human experience, even when surrounded by others. It often signals a need for deeper connection – with others and with yourself. Remember that being alone and being lonely are different. You can start by being a compassionate friend to yourself, then reaching out when you're ready."
+                    }
+                }
+            },
+            two: {
+                anxious: {
+                    1: {
+                        mantra: "I breathe in calm, I breathe out fear.",
+                        reframe: "My anxiety shows me what matters. I can take one small step forward.",
+                        action: "Practice 4-7-8 breathing: inhale for 4, hold for 7, exhale for 8. Repeat 3 times."
+                    }
+                },
+                frustrated: {
+                    1: {
+                        mantra: "This frustration is temporary. I choose my response.",
+                        reframe: "My frustration is energy that can fuel positive change and growth.",
+                        action: "Write down what's frustrating you, then list one small action you can take today."
+                    }
+                },
+                unworthy: {
+                    1: {
+                        mantra: "I am enough, exactly as I am right now.",
+                        reframe: "My worth is inherent and doesn't depend on external validation.",
+                        action: "Look in the mirror and say three things you appreciate about yourself."
+                    }
+                },
+                ashamed: {
+                    1: {
+                        mantra: "I am human, I am learning, I am worthy of forgiveness.",
+                        reframe: "My mistakes are opportunities for growth and deeper self-compassion.",
+                        action: "Write yourself a letter of forgiveness for one thing you're holding onto."
+                    }
+                },
+                overwhelmed: {
+                    1: {
+                        mantra: "One breath, one step, one moment at a time.",
+                        reframe: "I have everything I need to handle what's in front of me right now.",
+                        action: "List your top 3 priorities for today and focus only on those."
+                    }
+                },
+                embarrassed: {
+                    1: {
+                        mantra: "This moment will pass. I am more resilient than I know.",
+                        reframe: "Everyone makes mistakes. This experience is helping me grow stronger.",
+                        action: "Share this feeling with someone you trust or write about it in a journal."
+                    }
+                },
+                heartbroken: {
+                    1: {
+                        mantra: "My heart is healing, even when it doesn't feel like it.",
+                        reframe: "This pain is proof of my capacity to love deeply.",
+                        action: "Do one small act of self-care today, like taking a warm bath or calling a friend."
+                    }
+                },
+                numb: {
+                    1: {
+                        mantra: "It's safe for me to feel. I can handle my emotions.",
+                        reframe: "Numbness is my mind's way of protecting me. I can gently reconnect when ready.",
+                        action: "Engage one of your senses: listen to music, touch something soft, or taste something flavorful."
+                    }
+                },
+                guilty: {
+                    1: {
+                        mantra: "I learn from my mistakes and choose to move forward with wisdom.",
+                        reframe: "Healthy guilt guides me toward better choices and deeper compassion.",
+                        action: "If possible, make one small amend. Then practice self-forgiveness."
+                    }
+                },
+                lonely: {
+                    1: {
+                        mantra: "I am connected to the world around me in ways I may not see.",
+                        reframe: "My loneliness is a call for connection, starting with myself.",
+                        action: "Reach out to one person today, even with just a simple 'thinking of you' message."
+                    }
+                }
+            }
+        };
+
+        // Card unlock system
+        let unlockedCards = JSON.parse(localStorage.getItem('unlockedCards')) || {};
+        let lastAccess = JSON.parse(localStorage.getItem('lastAccess')) || {};
+
+        function initializeCardSystem() {
+            // Initialize with first day cards unlocked
+            Object.keys(contentData.one).forEach(emotion => {
+                if (!unlockedCards[emotion]) {
+                    unlockedCards[emotion] = { one: [1], two: [1] };
+                }
+            });
+            updateCardStates();
+        }
+
+        function updateCardStates() {
+            const currentTime = Date.now();
+            
+            // Check if 24 hours have passed for any emotion
+            Object.keys(lastAccess).forEach(emotion => {
+                const timeDiff = currentTime - lastAccess[emotion];
+                if (timeDiff >= 24 * 60 * 60 * 1000) { // 24 hours
+                    // Unlock next card for this emotion
+                    ['one', 'two'].forEach(section => {
+                        if (unlockedCards[emotion] && unlockedCards[emotion][section]) {
+                            const maxDay = Math.max(...unlockedCards[emotion][section]);
+                            if (maxDay < 5) {
+                                unlockedCards[emotion][section].push(maxDay + 1);
+                            }
+                        }
+                    });
+                    delete lastAccess[emotion];
+                }
+            });
+
+            // Update visual states
+            document.querySelectorAll('.emotion-btn').forEach(btn => {
+                const emotion = btn.getAttribute('data-emotion');
+                const section = btn.getAttribute('data-section') || 'one';
+                const currentDay = parseInt(btn.getAttribute('data-day')) || 1;
+                
+                if (unlockedCards[emotion] && unlockedCards[emotion][section] && 
+                    unlockedCards[emotion][section].includes(currentDay)) {
+                    btn.classList.remove('locked');
+                    btn.querySelector('.locked-overlay').style.display = 'none';
+                } else {
+                    btn.classList.add('locked');
+                    btn.querySelector('.locked-overlay').style.display = 'block';
+                }
+            });
+
+            // Save to localStorage
+            localStorage.setItem('unlockedCards', JSON.stringify(unlockedCards));
+            localStorage.setItem('lastAccess', JSON.stringify(lastAccess));
+        }
+
+        function showSection(sectionName) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`section-${sectionName}`).classList.add('active');
+        }
+
+        function openCard(emotion, section = 'one') {
+            const currentDay = getCurrentDay(emotion, section);
+            
+            // Check if card is unlocked
+            if (!unlockedCards[emotion] || !unlockedCards[emotion][section] || 
+                !unlockedCards[emotion][section].includes(currentDay)) {
+                return; // Card is locked
+            }
+
+            const content = contentData[section][emotion][currentDay];
+            if (!content) return;
+
+            document.getElementById('modalTitle').textContent = 
+                `${emotion.charAt(0).toUpperCase() + emotion.slice(1)} – Day ${currentDay} of 5`;
+
+            let bodyContent = '';
+            
+            if (section === 'one') {
+                bodyContent = `
+                    <div class="quote">"${content.quote}"</div>
+                    <div class="reflection">${content.reflection}</div>
+                `;
+            } else {
+                bodyContent = `
+                    <div class="mantra">
+                        <div class="section-title">Mantra:</div>
+                        ${content.mantra}
+                    </div>
+                    <div class="reframe">
+                        <div class="section-title">Reframe:</div>
+                        ${content.reframe}
+                    </div>
+                    <div class="action">
+                        <div class="section-title">Action:</div>
+                        ${content.action}
+                    </div>
+                `;
+            }
+
+            document.getElementById('modalBody').innerHTML = bodyContent;
+
+            // Mark as accessed and start 24-hour timer
+            lastAccess[emotion] = Date.now();
+            localStorage.setItem('lastAccess', JSON.stringify(lastAccess));
+
+            // Show modal
+            const modal = document.getElementById('cardModal');
+            modal.style.display = 'block';
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        function getCurrentDay(emotion, section) {
+            if (!unlockedCards[emotion] || !unlockedCards[emotion][section]) {
+                return 1;
+            }
+            return Math.max(...unlockedCards[emotion][section]);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('cardModal');
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = 'none', 300);
+        }
+
+        function toggleZoom() {
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.classList.toggle('zoomed');
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCardSystem();
+
+            // Add click handlers to emotion buttons
+            document.querySelectorAll('.emotion-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const emotion = this.getAttribute('data-emotion');
+                    const section = this.getAttribute('data-section') || 'one';
+                    
+                    if (!this.classList.contains('locked')) {
+                        openCard(emotion, section);
+                    }
+                });
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('cardModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+
+        // PWA functionality
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show custom install prompt
+            setTimeout(() => {
+                document.getElementById('installPrompt').style.display = 'block';
+            }, 3000);
+        });
+
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    deferredPrompt = null;
+                    dismissInstall();
+                });
+            }
+        }
+
+        function dismissInstall() {
+            document.getElementById('installPrompt').style.display = 'none';
+        }
+
+        // Service Worker Registration (only works on HTTPS/localhost)
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+            window.addEventListener('load', () => {
+                // Create service worker code
+                const swCode = `
+                    const CACHE_NAME = 'reframe-to-rise-v1';
+                    const urlsToCache = [
+                        './',
+                        'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap'
+                    ];
+
+                    self.addEventListener('install', (event) => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME)
+                                .then((cache) => {
+                                    console.log('Opened cache');
+                                    return cache.addAll(urlsToCache);
+                                })
+                        );
+                    });
+
+                    self.addEventListener('fetch', (event) => {
+                        event.respondWith(
+                            caches.match(event.request)
+                                .then((response) => {
+                                    // Return cached version or fetch from network
+                                    if (response) {
+                                        return response;
+                                    }
+                                    return fetch(event.request);
+                                }
+                            )
+                        );
+                    });
+                `;
+
+                // Create blob and register service worker
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+
+                navigator.serviceWorker.register(swUrl)
+                    .then((registration) => {
+                        console.log('✅ ServiceWorker registration successful:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('❌ ServiceWorker registration failed:', error);
+                        console.log('💡 Note: Service workers require HTTPS or localhost to work properly');
+                    });
+            });
+        } else {
+            console.log('💡 Service Worker not supported or not on HTTPS/localhost');
+        }
+
+        // Add more content for different days (you can expand this)
+        // This is just sample content - you can add your own quotes, reflections, mantras, reframes, and actions
+        
+        // Update contentData with more days
+        Object.keys(contentData.one).forEach(emotion => {
+            for (let day = 2; day <= 5; day++) {
+                if (!contentData.one[emotion][day]) {
+                    contentData.one[emotion][day] = {
+                        quote: `Inspirational quote for ${emotion} day ${day}`,
+                        reflection: `Thoughtful reflection content for ${emotion} on day ${day}. This would contain 3-5 calming sentences specific to this emotion and day.`
+                    };
+                }
+                if (!contentData.two[emotion][day]) {
+                    contentData.two[emotion][day] = {
+                        mantra: `Empowering mantra for ${emotion} day ${day}`,
+                        reframe: `Positive reframe for ${emotion} day ${day}`,
+                        action: `Specific action step for ${emotion} day ${day}`
+                    };
+                }
+            }
+        });
+
+        // Add pulse animation to available cards
+        setInterval(() => {
+            document.querySelectorAll('.emotion-btn:not(.locked)').forEach(btn => {
+                btn.classList.add('pulse');
+                setTimeout(() => btn.classList.remove('pulse'), 2000);
+            });
+        }, 10000);
+    </script>
+</body>
+</html>
