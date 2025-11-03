@@ -16,7 +16,7 @@ A mobile-first Progressive Web Application designed to support emotional wellnes
 
 ## 🚀 Live Demo
 
-Visit: [Your-GitHub-Pages-URL]
+Visit: https://anica-blip.github.io/3c-reframe-to-rise/
 
 ## 🛠️ Installation
 
