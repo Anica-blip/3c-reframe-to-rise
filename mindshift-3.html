@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3C Mindshift - Step 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            overflow: hidden;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Reframe to Rise - background/4.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #2d1b4e;
+        }
+
+        .clickable-area {
+            position: fixed;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            transition: all 0.2s ease;
+            z-index: 100;
+        }
+
+        .clickable-area:hover {
+            background: rgba(97, 216, 230, 0.1);
+        }
+
+        .clickable-area:active {
+            background: rgba(97, 216, 230, 0.2);
+        }
+
+        #home-btn {
+            bottom: 6%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 60px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    
+    <!-- Invisible clickable area positioned over home button -->
+    <div class="clickable-area" id="home-btn" onclick="window.location.href='home.html'"></div>
+</body>
+</html>
