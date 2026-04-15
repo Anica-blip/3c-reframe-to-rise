@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation - Return to Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            overflow: hidden;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Reframe to Rise - background/5.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #2d1b4e;
+        }
+
+        .clickable-area {
+            position: fixed;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            transition: all 0.2s ease;
+            z-index: 100;
+        }
+
+        .clickable-area:hover {
+            background: rgba(97, 216, 230, 0.1);
+        }
+
+        .clickable-area:active {
+            background: rgba(97, 216, 230, 0.2);
+        }
+
+        /* Play button - positioned over PLAY button in center image */
+        #play-btn {
+            top: 48%;
+            left: 53%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+            height: 160px;
+        }
+
+        /* Next button - positioned over arrow button at bottom */
+        #next-btn {
+            bottom: 6%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 60px;
+        }
+
+        /* Hidden audio element */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    
+    <!-- Hidden audio element -->
+    <audio id="meditation-audio">
+        <source src="Reframe to Rise - background/3C Mindshift Guided Affirmation-Meditation.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Invisible clickable area over PLAY button in center image -->
+    <div class="clickable-area" id="play-btn" onclick="document.getElementById('meditation-audio').play()"></div>
+    
+    <!-- Invisible clickable area over arrow button at bottom -->
+    <div class="clickable-area" id="next-btn" onclick="window.location.href='song.html'"></div>
+
+    <script>
+        // Optional: Auto-pause when leaving page
+        window.addEventListener('beforeunload', () => {
+            document.getElementById('meditation-audio').pause();
+        });
+    </script>
+</body>
+</html>
