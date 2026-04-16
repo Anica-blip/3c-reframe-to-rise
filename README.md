@@ -14,7 +14,7 @@ A mobile-first emotional wellness experience built as a static GitHub Pages app.
 - **7-Day Card Journey**: Each emotion unlocks one card per day for 7 days (front: quote + reflection / back: mantra + reframe + action)
 - **Card Flip**: "Go Deeper" flips the card to reveal deeper tools
 - **Guided Meditation**: Audio plays directly in-browser
-- **Grounding Song**: Original music by Chef Anica, plays in-browser
+- **Grounding Song**: Original music by Suno x Chef Anica, plays in-browser
 - **Zero forced paths**: Users are never locked into a sequence they don't want
 
 ---
