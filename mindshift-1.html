@@ -7,71 +7,58 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0714; overflow: hidden; width: 100vw; height: 100vh; }
+
+        #bgImg {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: contain; object-position: center; z-index: 0;
         }
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            overflow: hidden;
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('assets/2.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #0a0714;
-        }
+        #overlayWrap { position: fixed; z-index: 10; }
 
         .clickable-area {
-            position: fixed;
+            position: absolute;
             cursor: pointer;
             background: transparent;
-            border: none;
-            transition: all 0.2s ease;
-            z-index: 100;
+            border-radius: 8px;
+            transition: background 0.2s ease;
         }
+        .clickable-area:hover  { background: rgba(97, 216, 230, 0.12); }
+        .clickable-area:active { background: rgba(97, 216, 230, 0.25); }
 
-        .clickable-area:hover {
-            background: rgba(97, 216, 230, 0.1);
-        }
-
-        .clickable-area:active {
-            background: rgba(97, 216, 230, 0.2);
-        }
-
+        /* Chef tuned: bottom 13%, centered */
         #next-btn {
-            bottom: 13%;
-            left: 50%;
+            bottom: 13%; left: 50%;
             transform: translateX(-50%);
-            width: 90px;
-            height: 40px;
-            -webkit-tap-highlight-color: rgba(97, 216, 230, 0.3);
-        }
-
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            #next-btn {
-                width: 120px;
-                height: 60px;
-                bottom: 10%;
-            }
+            width: 22%; height: 6%;
         }
     </style>
 </head>
 <body>
-    <div class="background-container"></div>
-    <div class="clickable-area" id="next-btn" onclick="window.location.href='mindshift-2.html'"></div>
+    <img id="bgImg" src="assets/2.png" alt="">
+    <div id="overlayWrap">
+        <div class="clickable-area" id="next-btn" onclick="window.location.href='mindshift-2.html'"></div>
+    </div>
+    <script>
+        function fitOverlays() {
+            var img = document.getElementById('bgImg');
+            if (!img.naturalWidth) return;
+            var vw = window.innerWidth, vh = window.innerHeight;
+            var ir = img.naturalWidth / img.naturalHeight;
+            var vr = vw / vh;
+            var w, h, x, y;
+            if (vr > ir) { h = vh; w = h * ir; x = (vw - w) / 2; y = 0; }
+            else         { w = vw; h = w / ir; x = 0; y = (vh - h) / 2; }
+            var wrap = document.getElementById('overlayWrap');
+            wrap.style.left = x + 'px'; wrap.style.top = y + 'px';
+            wrap.style.width = w + 'px'; wrap.style.height = h + 'px';
+        }
+        var img = document.getElementById('bgImg');
+        img.onload = fitOverlays;
+        if (img.complete && img.naturalWidth) fitOverlays();
+        window.addEventListener('resize', fitOverlays);
+    </script>
 </body>
 </html>
