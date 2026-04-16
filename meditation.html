@@ -27,7 +27,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('Reframe to Rise - background/5.png');
+            background-image: url('assets/5.png');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -51,7 +51,6 @@
             background: rgba(97, 216, 230, 0.2);
         }
 
-        /* Play button - positioned over PLAY button in center image */
         #play-btn {
             top: 44%;
             left: 51%;
@@ -60,7 +59,6 @@
             height: 123.5px;
         }
 
-        /* Next button - positioned over arrow button at bottom */
         #next-btn {
             bottom: 6%;
             left: 50%;
@@ -69,7 +67,6 @@
             height: 40px;
         }
 
-        /* Hidden audio element */
         audio {
             display: none;
         }
@@ -77,20 +74,15 @@
 </head>
 <body>
     <div class="background-container"></div>
-    
-    <!-- Hidden audio element -->
+
     <audio id="meditation-audio">
-        <source src="Reframe to Rise - background/3C Mindshift Guided Affirmation-Meditation.mp3" type="audio/mpeg">
+        <source src="assets/3C Mindshift Guided Affirmation-Meditation.mp3" type="audio/mpeg">
     </audio>
-    
-    <!-- Invisible clickable area over PLAY button in center image -->
+
     <div class="clickable-area" id="play-btn" onclick="document.getElementById('meditation-audio').play()"></div>
-    
-    <!-- Invisible clickable area over arrow button at bottom -->
     <div class="clickable-area" id="next-btn" onclick="window.location.href='song.html'"></div>
 
     <script>
-        // Optional: Auto-pause when leaving page
         window.addEventListener('beforeunload', () => {
             document.getElementById('meditation-audio').pause();
         });
