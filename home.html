@@ -7,87 +7,53 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Open Sans', sans-serif;
+            background: #0a0714;
             overflow: hidden;
-            position: relative;
             width: 100vw;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .background-container {
+        /* Background image — object-fit:contain so JS can calculate rendered bounds */
+        #bgImg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('assets/1.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #0a0714;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: contain;
+            object-position: center;
+            z-index: 0;
         }
 
+        /* Overlay wrapper — JS sizes/positions this to match the rendered image exactly */
+        #overlayWrap {
+            position: fixed;
+            z-index: 10;
+            /* JS will set top/left/width/height */
+        }
+
+        /* All clickable areas are absolute inside overlayWrap — % of image, not viewport */
         .section-overlay {
             position: absolute;
             cursor: pointer;
-            transition: all 0.2s ease;
             background: transparent;
-            border: none;
+            border-radius: 10px;
+            transition: background 0.2s ease;
         }
+        .section-overlay:hover  { background: rgba(97, 216, 230, 0.12); }
+        .section-overlay:active { background: rgba(97, 216, 230, 0.25); }
 
-        .section-overlay:hover {
-            background: rgba(97, 216, 230, 0.1);
-        }
+        /* Chef: these % values are tuned on desktop — they now apply to the image area on ALL screens */
+        #section-mindshift  { top: 32%; left: 25%;  width: 14%; height: 18%; }
+        #section-meditation { top: 32%; left: 43.5%; width: 14%; height: 18%; }
+        #section-song       { top: 32%; left: 62%;  width: 14%; height: 18%; }
 
-        .section-overlay:active {
-            background: rgba(97, 216, 230, 0.2);
-        }
-
-        #section-mindshift {
-            top: 32%;
-            left: 25%;
-            width: 14%;
-            height: 18%;
-        }
-
-        #section-meditation {
-            top: 32%;
-            left: 43.5%;
-            width: 14%;
-            height: 18%;
-        }
-
-        #section-song {
-            top: 32%;
-            right: 24%;
-            width: 14%;
-            height: 18%;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-
-        .section-overlay.pulse {
-            animation: pulse 2s infinite;
-        }
-
-
-        /* Watermark */
+        /* Watermark sits at bottom of the image area */
         .watermark {
-            position: fixed;
-            bottom: 10px;
+            position: absolute;
+            bottom: 1.2%;
             left: 50%;
             transform: translateX(-50%);
             font-family: 'Open Sans', sans-serif;
@@ -95,54 +61,70 @@
             color: rgba(255, 255, 255, 0.55);
             text-align: center;
             white-space: nowrap;
-            z-index: 999;
             pointer-events: none;
             letter-spacing: 0.3px;
         }
+        .watermark .heart { color: #e05555; }
 
-        .watermark .heart {
-            color: #e05555;
+        /* Scale watermark text on narrow images */
+        @media (max-width: 500px) {
+            .watermark { font-size: 8px; white-space: normal; line-height: 1.4; width: 90%; }
         }
 
-        /* Mobile responsive watermark */
-        @media (max-width: 768px) {
-            .watermark {
-                font-size: 8px;
-                bottom: 8px;
-                max-width: 90vw;
-                white-space: normal;
-                line-height: 1.3;
-            }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50%       { opacity: 1;   }
         }
+        .section-overlay.pulse { animation: pulse 2s infinite; }
     </style>
 </head>
 <body>
-    <div class="background-container"></div>
 
-    <div id="section-mindshift" class="section-overlay" onclick="navigateTo('mindshift-1.html')"></div>
-    <div id="section-meditation" class="section-overlay" onclick="navigateTo('meditation.html')"></div>
-    <div id="section-song" class="section-overlay" onclick="navigateTo('song.html')"></div>
+    <img id="bgImg" src="assets/1.png" alt="">
 
+    <div id="overlayWrap">
+        <div id="section-mindshift"  class="section-overlay" onclick="go('mindshift-1.html')"></div>
+        <div id="section-meditation" class="section-overlay" onclick="go('meditation.html')"></div>
+        <div id="section-song"       class="section-overlay" onclick="go('song.html')"></div>
 
-    <!-- Watermark -->
-    <div class="watermark">
-        Designed & built with <span class="heart">❤️</span>  by Claude (Anthropic) × Chef Anica · 3C Thread To Success Cooking Lab 🧪👨‍🍳
+        <div class="watermark">
+            Designed &amp; built with <span class="heart">❤️</span> by Claude (Anthropic) × Chef Anica · 3C Thread To Success Cooking Lab 🧪
+        </div>
     </div>
 
     <script>
-        function navigateTo(page) {
-            window.location.href = page;
+        function go(page) { window.location.href = page; }
+
+        function fitOverlays() {
+            var img = document.getElementById('bgImg');
+            if (!img.naturalWidth) return;
+            var vw = window.innerWidth, vh = window.innerHeight;
+            var ir = img.naturalWidth / img.naturalHeight;
+            var vr = vw / vh;
+            var w, h, x, y;
+            if (vr > ir) { h = vh; w = h * ir; x = (vw - w) / 2; y = 0; }
+            else         { w = vw; h = w / ir; x = 0; y = (vh - h) / 2; }
+            var wrap = document.getElementById('overlayWrap');
+            wrap.style.left   = x + 'px';
+            wrap.style.top    = y + 'px';
+            wrap.style.width  = w + 'px';
+            wrap.style.height = h + 'px';
         }
 
-        window.addEventListener('load', () => {
-            const sections = document.querySelectorAll('.section-overlay');
-            sections.forEach((section, index) => {
-                setTimeout(() => {
-                    section.classList.add('pulse');
-                    setTimeout(() => section.classList.remove('pulse'), 2000);
-                }, index * 500);
+        var img = document.getElementById('bgImg');
+        img.onload = function() {
+            fitOverlays();
+            // Pulse effect on load
+            var sections = document.querySelectorAll('.section-overlay');
+            sections.forEach(function(s, i) {
+                setTimeout(function() {
+                    s.classList.add('pulse');
+                    setTimeout(function() { s.classList.remove('pulse'); }, 2000);
+                }, i * 500);
             });
-        });
+        };
+        if (img.complete && img.naturalWidth) img.onload();
+        window.addEventListener('resize', fitOverlays);
     </script>
 </body>
 </html>
