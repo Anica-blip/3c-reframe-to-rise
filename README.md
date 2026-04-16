@@ -77,6 +77,12 @@ HOME
 
 ---
 
+## 🎨 Artwork
+Background FREE AI Image Generator by https://perchance.org/ai-text-to-image-generator
+Canva Create additional design work by Chef Anica
+
+---
+
 ## 🤝 Built By
 
 Designed & built with ❤️ by Claude (Anthropic) × Chef Anica · 3C Thread To Success Cooking Lab 🧪👨‍🍳
