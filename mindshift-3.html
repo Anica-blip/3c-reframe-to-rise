@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3C Mindshift - Step 3</title>
+    <title>3C MindShift Kit - Reframe To Rise</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -21,12 +21,11 @@
             height: 100vh;
         }
 
+        /* ── Background ── */
         .background-container {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background-image: url('assets/4.png');
             background-size: contain;
             background-position: center;
@@ -34,35 +33,486 @@
             background-color: #0a0714;
         }
 
-        .clickable-area {
+        /* ══════════════════════════════════
+           EMOTION BUTTON OVERLAYS
+           Chef: adjust top/left/width/height
+           per button to sit over each image
+           button exactly. All values are %
+           of viewport.
+        ══════════════════════════════════ */
+        .emotion-btn {
             position: fixed;
             cursor: pointer;
             background: transparent;
             border: none;
-            transition: all 0.2s ease;
             z-index: 100;
+            transition: background 0.2s ease;
+            border-radius: 12px;
         }
 
-        .clickable-area:hover {
-            background: rgba(97, 216, 230, 0.1);
+        .emotion-btn:hover {
+            background: rgba(255, 220, 180, 0.12);
         }
 
-        .clickable-area:active {
-            background: rgba(97, 216, 230, 0.2);
+        .emotion-btn:active {
+            background: rgba(255, 220, 180, 0.25);
         }
 
+        /* Row 1 */
+        #btn-anxious      { top: 22%; left: 31%; width: 15%; height: 9%; }
+        #btn-frustrated   { top: 22%; left: 47%; width: 15%; height: 9%; }
+
+        /* Row 2 */
+        #btn-unworthy     { top: 34%; left: 31%; width: 15%; height: 9%; }
+        #btn-ashamed      { top: 34%; left: 47%; width: 15%; height: 9%; }
+
+        /* Row 3 */
+        #btn-overwhelmed  { top: 46%; left: 31%; width: 15%; height: 9%; }
+        #btn-embarrassed  { top: 46%; left: 47%; width: 15%; height: 9%; }
+
+        /* Row 4 */
+        #btn-heartbroken  { top: 58%; left: 31%; width: 15%; height: 9%; }
+        #btn-numb         { top: 58%; left: 47%; width: 15%; height: 9%; }
+
+        /* Row 5 */
+        #btn-guilty       { top: 70%; left: 31%; width: 15%; height: 9%; }
+        #btn-lonely       { top: 70%; left: 47%; width: 15%; height: 9%; }
+
+        /* Next arrow */
         #next-btn {
+            position: fixed;
             bottom: 6%;
             left: 50%;
             transform: translateX(-50%);
             width: 90px;
             height: 40px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            z-index: 100;
+        }
+
+        /* ══════════════════════════════════
+           CARD POPUP OVERLAY
+        ══════════════════════════════════ */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 7, 20, 0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 500;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        /* 3D card scene */
+        .card-scene {
+            perspective: 1200px;
+            width: min(340px, 88vw);
+            height: min(510px, 82vh);
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-inner.flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* Shared face styles */
+        .card-face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 24px;
+            padding: 30px 26px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+
+            /* Warm earth glassmorphism */
+            background: rgba(55, 33, 14, 0.5);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(200, 155, 100, 0.28);
+            box-shadow:
+                0 12px 48px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 215, 160, 0.12);
+        }
+
+        .card-back-face {
+            transform: rotateY(180deg);
+        }
+
+        /* Day label */
+        .card-day-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: rgba(200, 155, 100, 0.85);
+        }
+
+        /* Emotion title */
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #61d8e6;
+            line-height: 1.15;
+        }
+
+        /* Divider */
+        .card-divider {
+            height: 1px;
+            background: rgba(200, 155, 100, 0.22);
+            border: none;
+        }
+
+        /* Front: quote */
+        .card-quote {
+            font-size: 14.5px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.65;
+            border-left: 3px solid rgba(200, 155, 100, 0.65);
+            padding-left: 14px;
+        }
+
+        /* Front: reflection */
+        .card-reflection {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.75;
+            flex: 1;
+        }
+
+        /* Unlock timer */
+        .unlock-timer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: rgba(200, 155, 100, 0.7);
+        }
+
+        .unlock-dot {
+            width: 6px;
+            height: 6px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: rgba(200, 155, 100, 0.6);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Back sections */
+        .back-section {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .back-label {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: #61d8e6;
+        }
+
+        .back-text {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.65;
+            padding: 10px 13px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(200, 155, 100, 0.15);
+        }
+
+        /* Loading state */
+        .card-loading {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        /* Action buttons */
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-top: auto;
+        }
+
+        /* "Go Deeper" — warm earth tone button */
+        .btn-deeper {
+            padding: 13px;
+            border-radius: 14px;
+            border: 1px solid rgba(200, 155, 100, 0.5);
+            background: rgba(140, 85, 35, 0.35);
+            color: rgba(255, 255, 255, 0.94);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-deeper:hover {
+            background: rgba(140, 85, 35, 0.55);
+            border-color: rgba(200, 155, 100, 0.75);
+        }
+
+        /* "Return" — subtle transparent */
+        .btn-return {
+            padding: 11px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.55);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-return:hover {
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.85);
         }
     </style>
 </head>
 <body>
+
+    <!-- Background -->
     <div class="background-container"></div>
-    <!-- Fixed: was going to home.html, now correctly continues the cycle to meditation -->
-    <div class="clickable-area" id="next-btn" onclick="window.location.href='meditation.html'"></div>
+
+    <!-- ── Emotion Button Overlays ── -->
+    <div class="emotion-btn" id="btn-anxious"     onclick="openCard('anxious')"></div>
+    <div class="emotion-btn" id="btn-frustrated"  onclick="openCard('frustrated')"></div>
+    <div class="emotion-btn" id="btn-unworthy"    onclick="openCard('unworthy')"></div>
+    <div class="emotion-btn" id="btn-ashamed"     onclick="openCard('ashamed')"></div>
+    <div class="emotion-btn" id="btn-overwhelmed" onclick="openCard('overwhelmed')"></div>
+    <div class="emotion-btn" id="btn-embarrassed" onclick="openCard('embarrassed')"></div>
+    <div class="emotion-btn" id="btn-heartbroken" onclick="openCard('heartbroken')"></div>
+    <div class="emotion-btn" id="btn-numb"        onclick="openCard('numb')"></div>
+    <div class="emotion-btn" id="btn-guilty"      onclick="openCard('guilty')"></div>
+    <div class="emotion-btn" id="btn-lonely"      onclick="openCard('lonely')"></div>
+
+    <!-- Next arrow → meditation -->
+    <div id="next-btn" onclick="window.location.href='meditation.html'"></div>
+
+    <!-- ══════════════════════════════════
+         CARD POPUP
+    ══════════════════════════════════ -->
+    <div class="popup-overlay" id="cardPopup">
+        <div class="card-scene">
+            <div class="card-inner" id="cardInner">
+
+                <!-- FRONT FACE -->
+                <div class="card-face card-front-face">
+                    <div class="card-day-label" id="frontDayLabel">Day 1 of 7</div>
+                    <div class="card-title"     id="frontTitle">—</div>
+                    <hr class="card-divider">
+
+                    <div class="card-loading"   id="frontLoading">Loading your card...</div>
+
+                    <blockquote class="card-quote"      id="frontQuote"      style="display:none;"></blockquote>
+                    <p          class="card-reflection" id="frontReflection" style="display:none;"></p>
+
+                    <div class="unlock-timer" id="unlockTimer" style="display:none;">
+                        <span class="unlock-dot"></span>
+                        <span id="unlockTimerText">Next card available in 24 hours</span>
+                    </div>
+
+                    <div class="card-actions" id="frontActions" style="display:none;">
+                        <button class="btn-deeper"  onclick="flipCard()">Go Deeper ↓</button>
+                        <button class="btn-return"  onclick="closeCard()">Return</button>
+                    </div>
+                </div>
+
+                <!-- BACK FACE -->
+                <div class="card-face card-back-face">
+                    <div class="card-day-label" id="backDayLabel">Day 1 of 7 · Go Deeper</div>
+                    <div class="card-title"     id="backTitle">—</div>
+                    <hr class="card-divider">
+
+                    <div class="back-section">
+                        <div class="back-label">Mantra</div>
+                        <div class="back-text" id="backMantra"></div>
+                    </div>
+                    <div class="back-section">
+                        <div class="back-label">Reframe</div>
+                        <div class="back-text" id="backReframe"></div>
+                    </div>
+                    <div class="back-section">
+                        <div class="back-label">Action</div>
+                        <div class="back-text" id="backAction"></div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn-return" onclick="closeCard()">Return</button>
+                    </div>
+                </div>
+
+            </div><!-- /card-inner -->
+        </div><!-- /card-scene -->
+    </div><!-- /popup-overlay -->
+
+    <script>
+        // ── State ──
+        let cardsData = null;
+
+        // ── Human-readable emotion labels ──
+        const emotionLabels = {
+            anxious:     'Anxious',
+            frustrated:  'Frustrated',
+            unworthy:    'Unworthy',
+            ashamed:     'Ashamed',
+            overwhelmed: 'Overwhelmed',
+            embarrassed: 'Embarrassed',
+            heartbroken: 'Heartbroken',
+            numb:        'Numb',
+            guilty:      'Guilty',
+            lonely:      'Lonely'
+        };
+
+        // ── Load cards.json once, cache it ──
+        async function loadCards() {
+            if (cardsData) return cardsData;
+            try {
+                const res = await fetch('assets/cards.json');
+                if (!res.ok) throw new Error('Network response not ok');
+                cardsData = await res.json();
+                return cardsData;
+            } catch (e) {
+                console.error('cards.json load failed:', e);
+                return null;
+            }
+        }
+
+        // ── Day unlock logic ──
+        // Stores first-touch timestamp per emotion in localStorage.
+        // Returns current day (1–7).
+        function getDayNumber(emotion) {
+            const key   = `rtc_start_${emotion}`;
+            const now   = Date.now();
+            const stored = localStorage.getItem(key);
+
+            if (!stored) {
+                localStorage.setItem(key, now.toString());
+                return 1;
+            }
+
+            const ms       = now - parseInt(stored, 10);
+            const days     = Math.floor(ms / (1000 * 60 * 60 * 24));
+            return Math.min(days + 1, 7);
+        }
+
+        // ── Open card popup ──
+        async function openCard(emotion) {
+            const label = emotionLabels[emotion];
+            const day   = getDayNumber(emotion);
+
+            // Reset to front face
+            document.getElementById('cardInner').classList.remove('flipped');
+
+            // Set day labels + titles
+            document.getElementById('frontDayLabel').textContent = `Day ${day} of 7`;
+            document.getElementById('frontTitle').textContent    = label;
+            document.getElementById('backDayLabel').textContent  = `Day ${day} of 7 · Go Deeper`;
+            document.getElementById('backTitle').textContent     = label;
+
+            // Reset front visibility
+            document.getElementById('frontLoading').style.display    = 'flex';
+            document.getElementById('frontQuote').style.display      = 'none';
+            document.getElementById('frontReflection').style.display = 'none';
+            document.getElementById('frontActions').style.display    = 'none';
+            document.getElementById('unlockTimer').style.display     = 'none';
+
+            // Show popup
+            document.getElementById('cardPopup').classList.add('active');
+
+            // Fetch data
+            const data = await loadCards();
+
+            if (!data) {
+                document.getElementById('frontLoading').textContent =
+                    'Could not load card. Please check your connection.';
+                return;
+            }
+
+            const emotionDays = data[emotion];
+            if (!emotionDays || !emotionDays[day - 1]) {
+                document.getElementById('frontLoading').textContent =
+                    'This card is coming soon. Check back shortly!';
+                return;
+            }
+
+            const card = emotionDays[day - 1];
+
+            // Populate front
+            document.getElementById('frontQuote').textContent      = `"${card.front.quote}"`;
+            document.getElementById('frontReflection').textContent = card.front.reflection;
+
+            // Populate back
+            document.getElementById('backMantra').textContent  = card.back.mantra;
+            document.getElementById('backReframe').textContent = card.back.reframe;
+            document.getElementById('backAction').textContent  = card.back.action;
+
+            // Reveal content
+            document.getElementById('frontLoading').style.display    = 'none';
+            document.getElementById('frontQuote').style.display      = 'block';
+            document.getElementById('frontReflection').style.display = 'block';
+            document.getElementById('frontActions').style.display    = 'flex';
+
+            // Show unlock notice if not on final day
+            if (day < 7) {
+                document.getElementById('unlockTimerText').textContent =
+                    'Next card available in 24 hours';
+                document.getElementById('unlockTimer').style.display = 'flex';
+            }
+        }
+
+        // ── Flip to back ──
+        function flipCard() {
+            document.getElementById('cardInner').classList.add('flipped');
+        }
+
+        // ── Close popup ──
+        function closeCard() {
+            document.getElementById('cardPopup').classList.remove('active');
+            document.getElementById('cardInner').classList.remove('flipped');
+        }
+
+        // ── Tap outside card to close ──
+        document.getElementById('cardPopup').addEventListener('click', function(e) {
+            if (e.target === this) closeCard();
+        });
+
+        // ── Preload data on page ready ──
+        window.addEventListener('load', () => loadCards());
+    </script>
 </body>
 </html>
