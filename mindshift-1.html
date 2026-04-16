@@ -27,14 +27,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('Reframe to Rise - background/2.png');
+            background-image: url('assets/2.png');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
             background-color: #0a0714;
         }
 
-        /* Invisible clickable area for next button at bottom center */
         .clickable-area {
             position: fixed;
             cursor: pointer;
@@ -59,35 +58,10 @@
             width: 90px;
             height: 40px;
         }
-
-        /* Audio player (if needed for this page) */
-        .audio-container {
-            position: fixed;
-            bottom: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: none;
-        }
-
-        audio {
-            width: 300px;
-            max-width: 90vw;
-        }
     </style>
 </head>
 <body>
-    <!-- Background Image -->
     <div class="background-container"></div>
-
-    <!-- Invisible clickable area positioned over image button -->
     <div class="clickable-area" id="next-btn" onclick="window.location.href='mindshift-2.html'"></div>
-
-    <!-- Audio Player (hidden by default, show if needed) -->
-    <div class="audio-container">
-        <audio controls>
-            <source src="Reframe to Rise - background/3C Mindshift Guided Affirmation-Meditation.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
 </body>
 </html>
