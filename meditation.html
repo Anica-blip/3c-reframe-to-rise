@@ -7,99 +7,83 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0714; overflow: hidden; width: 100vw; height: 100vh; }
+
+        #bgImg {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: contain; object-position: center; z-index: 0;
         }
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            overflow: hidden;
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('assets/5.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #0a0714;
-        }
+        #overlayWrap { position: fixed; z-index: 10; }
 
         .clickable-area {
-            position: fixed;
+            position: absolute;
             cursor: pointer;
             background: transparent;
-            border: none;
-            transition: all 0.2s ease;
-            z-index: 100;
+            border-radius: 50%;
+            transition: background 0.2s ease;
         }
+        .clickable-area:hover  { background: rgba(97, 216, 230, 0.12); }
+        .clickable-area:active { background: rgba(97, 216, 230, 0.25); }
 
-        .clickable-area:hover {
-            background: rgba(97, 216, 230, 0.1);
-        }
-
-        .clickable-area:active {
-            background: rgba(97, 216, 230, 0.2);
-        }
-
+        /* Play button — centred over the circular play element in the image */
         #play-btn {
-            top: 44%;
-            left: 51%;
+            top: 44%; left: 51%;
             transform: translate(-50%, -50%);
-            width: 122px;
-            height: 123.5px;
-            -webkit-tap-highlight-color: rgba(97, 216, 230, 0.3);
+            width: 18%; height: 18%;
+            border-radius: 50%;
         }
 
+        /* Next arrow */
         #next-btn {
-            bottom: 6%;
-            left: 50%;
+            bottom: 6%; left: 50%;
             transform: translateX(-50%);
-            width: 90px;
-            height: 40px;
-            -webkit-tap-highlight-color: rgba(97, 216, 230, 0.3);
+            width: 22%; height: 6%;
+            border-radius: 8px;
         }
 
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            #play-btn {
-                width: 150px;
-                height: 150px;
-            }
-
-            #next-btn {
-                width: 120px;
-                height: 60px;
-                bottom: 4%;
-            }
-        }
-
-        audio {
-            display: none;
-        }
+        audio { display: none; }
     </style>
 </head>
 <body>
-    <div class="background-container"></div>
+    <img id="bgImg" src="assets/5.png" alt="">
+
+    <div id="overlayWrap">
+        <div class="clickable-area" id="play-btn" onclick="playAudio()"></div>
+        <div class="clickable-area" id="next-btn" onclick="window.location.href='song.html'"></div>
+    </div>
 
     <audio id="meditation-audio">
         <source src="assets/3C Mindshift Guided Affirmation-Meditation.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="clickable-area" id="play-btn" onclick="document.getElementById('meditation-audio').play()"></div>
-    <div class="clickable-area" id="next-btn" onclick="window.location.href='song.html'"></div>
-
     <script>
-        window.addEventListener('beforeunload', () => {
+        function fitOverlays() {
+            var img = document.getElementById('bgImg');
+            if (!img.naturalWidth) return;
+            var vw = window.innerWidth, vh = window.innerHeight;
+            var ir = img.naturalWidth / img.naturalHeight;
+            var vr = vw / vh;
+            var w, h, x, y;
+            if (vr > ir) { h = vh; w = h * ir; x = (vw - w) / 2; y = 0; }
+            else         { w = vw; h = w / ir; x = 0; y = (vh - h) / 2; }
+            var wrap = document.getElementById('overlayWrap');
+            wrap.style.left = x + 'px'; wrap.style.top = y + 'px';
+            wrap.style.width = w + 'px'; wrap.style.height = h + 'px';
+        }
+        var img = document.getElementById('bgImg');
+        img.onload = fitOverlays;
+        if (img.complete && img.naturalWidth) fitOverlays();
+        window.addEventListener('resize', fitOverlays);
+
+        function playAudio() {
+            var audio = document.getElementById('meditation-audio');
+            if (audio.paused) { audio.play(); } else { audio.pause(); }
+        }
+
+        window.addEventListener('beforeunload', function() {
             document.getElementById('meditation-audio').pause();
         });
     </script>
