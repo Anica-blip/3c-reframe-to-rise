@@ -85,7 +85,7 @@
       }
     }
   ],
-"frustrated": [
+  "frustrated": [
   {
     "day": 1,
     "front": {
@@ -170,7 +170,7 @@
       "action": "Come back to this journey whenever frustration rises again. Each time you return, you will move faster, go deeper, and find more of yourself waiting there. You are the proof. Well done."
     }
   }
-]
+],
 "unworthy": [
   {
     "day": 1,
@@ -256,93 +256,7 @@
       "action": "Write yourself one sentence — just one — that you needed to hear at the beginning of this journey. Then read it as many times as you need to. You earned every word of it. Well done."
     }
   }
-]
-"anxious": [
-  {
-    "day": 1,
-    "front": {
-      "quote": "Courage is not the absence of fear, but action in spite of it.",
-      "reflection": "Anxiety often signals that something matters to you deeply. Take a moment to breathe slowly and recognise that feeling anxious is natural. Your brain is not broken — it is doing its job, scanning for danger to keep you safe. The difficulty is that sometimes it scans too hard, for too long. Your courage grows each time you move forward despite the fear."
-    },
-    "back": {
-      "mantra": "I breathe in calm, I breathe out fear.",
-      "reframe": "My anxiety shows me what matters. I can take one small step forward.",
-      "action": "Practice 4-7-8 breathing: inhale for 4, hold for 7, exhale for 8. Repeat 3 times."
-    }
-  },
-  {
-    "day": 2,
-    "front": {
-      "quote": "You don't have to control your thoughts. You just have to stop letting them control you.",
-      "reflection": "Anxiety loves to predict the worst. It builds entire futures out of possibilities that have not happened and may never happen. Today, notice the thought without becoming it. You are not the storm — you are the sky that holds it. The storm moves through. The sky remains. That steadiness is already inside you."
-    },
-    "back": {
-      "mantra": "I am safe in this moment. Only this moment is real.",
-      "reframe": "My thoughts are visitors, not residents. I choose what stays.",
-      "action": "Write down the worry. Then write one reason it might not happen. Read it back slowly and let the other possibility exist alongside the fear."
-    }
-  },
-  {
-    "day": 3,
-    "front": {
-      "quote": "Worry is a misuse of imagination. — Dan Zadra",
-      "reflection": "Your mind is genuinely powerful. Right now it may be using that power to rehearse what could go wrong. But that same imagination can be gently turned. What if it rehearsed something going right instead? Not as denial — as practice. The mind does not always know the difference between what is real and what is vividly imagined. Today, give it something worth rehearsing."
-    },
-    "back": {
-      "mantra": "I redirect my mind toward what is good and real.",
-      "reframe": "My imagination is a gift. I choose to use it to build, not to fear.",
-      "action": "Close your eyes for two minutes. Picture one small thing going well today — in detail. Feel it as if it is already happening. Then open your eyes and carry that feeling forward."
-    }
-  },
-  {
-    "day": 4,
-    "front": {
-      "quote": "Almost everything will work again if you unplug it for a few minutes — including you. — Anne Lamott",
-      "reflection": "There is a kind of courage that looks like stillness. Choosing to rest when anxiety is pushing you to keep moving, keep checking, keep solving — that is not weakness. That is wisdom. Your nervous system is asking for a pause. Today, honouring that request is the bravest thing you can do."
-    },
-    "back": {
-      "mantra": "Rest is productive. I give myself permission to pause.",
-      "reframe": "Slowing down is not falling behind. It is how I stay strong enough to keep going.",
-      "action": "Set a 5-minute timer. Do nothing. No phone, no task. Just sit and breathe. If your mind wanders, gently bring it back to your breath. Five minutes is enough."
-    }
-  },
-  {
-    "day": 5,
-    "front": {
-      "quote": "You have survived every difficult day so far. Your track record is 100%.",
-      "reflection": "Look back — not to dwell, but to collect evidence. Every hard day you thought you could not get through, you got through. Every moment that felt too heavy, you carried. That is not luck. That is you. Your history of survival is not something that happened to you — it is something you did. And you are still doing it."
-    },
-    "back": {
-      "mantra": "I have overcome before. I will overcome again.",
-      "reframe": "My history of survival is proof of my strength. I have more resilience than my anxiety admits.",
-      "action": "Name one hard thing you have already survived — something that once felt impossible. Say out loud: 'I did that. I am still here.' Let those words land before you move on."
-    }
-  },
-  {
-    "day": 6,
-    "front": {
-      "quote": "Peace is the result of retraining your mind to process life as it is, rather than as you think it should be. — Wayne Dyer",
-      "reflection": "Anxiety often grows in the gap between what is and what we think should be. The tighter we grip the outcome, the louder the anxiety becomes. Today, the practice is softening — not giving up, but loosening the hold just enough to let some air in. Uncertainty is not the same as danger. It is simply unknown. And the unknown has held good things before."
-    },
-    "back": {
-      "mantra": "I release the need to control what I cannot. I trust the process.",
-      "reframe": "Uncertainty is not danger. It is simply unknown — and the unknown can hold good things too.",
-      "action": "Write one thing you are trying to control that is genuinely outside your power. Then write beneath it: 'I release this.' Read it once. Breathe once. That is enough."
-    }
-  },
-  {
-    "day": 7,
-    "front": {
-      "quote": "You are braver than you believe, stronger than you seem, and smarter than you think. — A.A. Milne",
-      "reflection": "Seven days. You chose to come back every single one of them. That is not a small thing — that is a declaration. Each time you returned instead of retreating, you were voting for yourself. The anxiety that brought you here has not vanished, but your relationship with it has changed. You are no longer just inside it. You are beginning to understand it. Come back whenever you need to. Every time you do, you will find you have grown a little beyond where you left off."
-    },
-    "back": {
-      "mantra": "I am becoming the version of me who no longer fears this.",
-      "reframe": "Every day I showed up was a vote for who I am choosing to become. Seven votes. That is a pattern worth continuing.",
-      "action": "Close your eyes. Place one hand on your heart. Say: 'I am proud of you.' Mean it. Then come back to this journey whenever anxiety rises — each return takes you deeper, and deeper is where the real strength lives."
-    }
-  }
-]
+],
 "overwhelmed": [
   {
     "day": 1,
@@ -428,7 +342,7 @@
       "action": "Write three things you handled this week that felt impossible on Day 1. Read them back slowly. That is not a list of tasks — that is evidence of who you are. Well done. Come back whenever you need to — each return builds on the last."
     }
   }
-]
+],
 "lonely": [
   {
     "day": 1,
@@ -514,7 +428,7 @@
       "action": "Write yourself a one-paragraph letter — from the you of today to the you who arrived on Day 1. Tell them what you know now that they needed to hear. Read it slowly. You earned every word. Well done. Come back whenever loneliness visits — each time you return, you will find you need a little less time to find your way back to yourself."
     }
   }
-]
+],
 "ashamed": [
   {
     "day": 1,
@@ -600,7 +514,7 @@
       "action": "Write yourself one sentence — the thing you most needed to hear when you arrived on Day 1. Read it slowly. Then keep it somewhere you can find it. You earned every word of it. Well done. Come back whenever shame rises again — each time you return, it will have a little less hold and you will have a little more of yourself back."
     }
   }
-]
+],
 "embarrassed": [
   {
     "day": 1,
@@ -686,7 +600,7 @@
       "action": "Write yourself one sentence — something you would say to a younger version of yourself who was burning with embarrassment. Read it slowly. Keep it close. You earned every word of it. Well done. Come back whenever embarrassment rises again — each return will feel lighter, and you will feel steadier."
     }
   }
-]
+],
 "heartbroken": [
   {
     "day": 1,
@@ -772,7 +686,7 @@
       "action": "Write yourself one sentence — something you would say to the version of you who arrived here on Day 1, sitting with that fresh pain. Read it slowly. Let it land. Then keep it somewhere safe — because you earned every word of it. Well done. Come back whenever heartbreak visits again — each time you return, you will find the pain a little quieter and yourself a little more whole."
     }
   }
-]
+],
 "numb": [
   {
     "day": 1,
@@ -858,7 +772,7 @@
       "action": "Write yourself one sentence — not a goal, not a promise, just something kind. Something you would say to a person who showed up every day feeling nothing and came back anyway. Read it slowly. You earned it. Well done. Come back whenever the numbness visits again — each return will feel a little less empty and you will feel a little more like yourself."
     }
   }
-]
+],
 "guilty": [
   {
     "day": 1,
@@ -945,3 +859,4 @@
     }
   }
 ]
+}
