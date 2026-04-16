@@ -1,77 +1,84 @@
-# Reframe to Rise - 3C MindShift Kit 🌟
+# Return to Center 🕊️
+### by 3C Thread To Success
 
-A mobile-first Progressive Web Application designed to support emotional wellness through daily reflections, mantras, and actionable tools.
+> *Tap In · Tune Out · Feel Better*
 
-## ✨ Features
-
-- **📱 Mobile-First PWA**: Install on any device, works offline
-- **🎯 10 Emotion Categories**: Anxious, Frustrated, Unworthy, Ashamed, Overwhelmed, Embarrassed, Heartbroken, Numb, Guilty, Lonely
-- **🔒 Progressive Unlocking**: 5 cards per emotion unlock every 24 hours (50 total per section)
-- **🔄 Dual Sections**: 
-  - *Reframe to Rise*: Daily quotes and reflections
-  - *Support Tools*: Mantras, reframes, and actions
-- **🔍 Zoom Feature**: Enhanced readability for all cards
-- **💫 Beautiful UI**: Neon borders, pulse animations, responsive design
-- **⚡ Fast Loading**: Optimized for performance and offline use
-
-## 🚀 Live Demo
-
-Visit: https://anica-blip.github.io/3c-reframe-to-rise/
-
-## 🛠️ Installation
-
-1. Clone this repository:
-```bash
-git clone https://github.com/yourusername/reframe-to-rise.git
-```
-
-2. Open `index.html` in your browser or serve with any web server
-
-3. **Install as PWA**: Visit the site and click "Install" when prompted
-
-## 📱 Usage
-
-1. **Choose Your Emotion**: Tap any emotion button to access daily content
-2. **Daily Unlocks**: New cards unlock every 24 hours automatically  
-3. **Go Deeper**: Navigate between reflection and action sections
-4. **Zoom Cards**: Use the zoom feature for better readability
-5. **Join Community**: Connect with the 3C Inner Growth community
-
-## 🎨 Design Highlights
-
-- **Background**: Deep purple gradient (#523474)
-- **Accent**: Sky blue highlights (#61d8e6) 
-- **CTA Buttons**: Neon gold with glowing effects (#a49079)
-- **Typography**: Open Sans font family
-- **Unique Neon Borders**: Each emotion has distinct color coding
-
-## 🔧 Customization
-
-Edit the `contentData` object in `index.html` to add your own:
-- Inspirational quotes
-- Reflection paragraphs
-- Empowering mantras
-- Positive reframes
-- Action steps
-
-## 🌐 Part of 3C Thread To Success
-
-This app is part of the **3C Thread To Success** project - a comprehensive approach to personal development and emotional wellness.
-
-**Community**: [3C Inner Growth Club](https://www.3c-innergrowth.club)
-
-## 📄 License
-
-MIT License - Feel free to use and modify for your projects
-
-## 🤝 Contributing
-
-Contributions welcome! Please feel free to submit a Pull Request.
-
-## 📞 Support
-
-For questions about the 3C methodology or community, visit [3C Inner Growth Club](https://www.3c-innergrowth.club)
+A mobile-first emotional wellness experience built as a static GitHub Pages app. Users navigate through a guided journey — choosing their emotional entry point, receiving daily mindshift cards, a guided meditation, and a grounding song — completing a full return to center.
 
 ---
 
-**"We Rise As One"** - A community of like-minded learners and leaders 🌟
+## ✨ What It Does
+
+- **3 Entry Points**: Users can begin at MindShift Kit, Meditation, or Song — meeting them where they are
+- **Full Cycle Flow**: Every path ends at the Thank You screen, completing the emotional reset loop
+- **7-Day Card Journey**: Each emotion unlocks one card per day for 7 days (front: quote + reflection / back: mantra + reframe + action)
+- **Card Flip**: "Go Deeper" flips the card to reveal deeper tools
+- **Guided Meditation**: Audio plays directly in-browser
+- **Grounding Song**: Original music by Chef Anica, plays in-browser
+- **Zero forced paths**: Users are never locked into a sequence they don't want
+
+---
+
+## 🗂️ File Structure
+
+```
+/
+├── index.html              ← Auto-redirects to home.html
+├── home.html               ← Hub: 3 entry points (MindShift / Meditation / Song)
+├── mindshift-1.html        ← Landing / START screen
+├── mindshift-2.html        ← Instructions screen
+├── mindshift-3.html        ← Emotion picker (10 buttons)
+├── meditation.html         ← Guided meditation audio screen
+├── song.html               ← Grounding song audio screen
+├── thankyou.html           ← Cycle complete screen
+├── favicon.png
+└── assets/
+    ├── 1.png               ← Home hub background
+    ├── 2.png               ← MindShift landing background
+    ├── 3.png               ← Instructions background
+    ├── 4.png               ← Emotion picker background
+    ├── 5.png               ← Meditation background
+    ├── 6.png               ← Song background
+    ├── 7.png               ← Thank You background
+    ├── cards.json          ← All card content (7 days × 10 emotions × 2 sides)
+    ├── 3C Mindshift Guided Affirmation-Meditation.mp3
+    └── 3C Meditation Song - Return to Center.mp3
+```
+
+---
+
+## 🔁 Navigation Flow
+
+```
+HOME
+ ├── [MindShift Kit] → mindshift-1 → mindshift-2 → mindshift-3 → meditation → song → thankyou
+ ├── [Meditation]    →                                             meditation → song → thankyou
+ └── [Song]          →                                                          song → thankyou
+```
+
+---
+
+## 🎨 Design System
+
+| Element | Value |
+|---------|-------|
+| Background | `#0a0714` (deep space) |
+| Title colour | `#61d8e6` (3C sky blue) |
+| Body text | `rgba(255,255,255,0.9)` |
+| Buttons | Warm earth brown, transparent glass feel |
+| Font | Open Sans |
+| Style | Glassmorphism · Warm earth tones · No neon |
+
+---
+
+## 🌐 Live
+
+[https://anica-blip.github.io/3c-reframe-to-rise/](https://anica-blip.github.io/3c-reframe-to-rise/)
+
+---
+
+## 🤝 Built By
+
+Built by Claude (Anthropic) × Chef Anica ❤️ · 3C Thread To Success Cooking Lab 🧪
+
+*"Think Smart, Not Harder"*
