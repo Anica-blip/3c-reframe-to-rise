@@ -2,380 +2,257 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3C MindShift Kit - Reframe To Rise</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0714; overflow: hidden; width: 100vw; height: 100vh; font-family: 'Open Sans', sans-serif; }
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            overflow: hidden;
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        /* ── Background ── */
-        .background-container {
-            position: fixed;
-            top: 0; left: 0;
+        #bgImg {
+            position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
-            background-image: url('assets/4.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #0a0714;
+            object-fit: contain; object-position: center; z-index: 0;
         }
 
-        /* ══════════════════════════════════
-           EMOTION BUTTON OVERLAYS
-           Chef: adjust top/left/width/height
-           per button to sit over each image
-           button exactly. All values are %
-           of viewport.
-        ══════════════════════════════════ */
+        #overlayWrap { position: fixed; z-index: 10; }
+
+        /* ── Emotion Buttons ──
+           Chef: adjust these % values to sit over each label button in the image.
+           All % are relative to the rendered image area — works the same on mobile & desktop.
+        */
         .emotion-btn {
-            position: fixed;
+            position: absolute;
             cursor: pointer;
             background: transparent;
-            border: none;
-            z-index: 100;
+            border-radius: 14px;
             transition: background 0.2s ease;
-            border-radius: 8px;
         }
-
-        .emotion-btn:hover {
-            background: rgba(255, 220, 180, 0.12);
-        }
-
-        .emotion-btn:active {
-            background: rgba(255, 220, 180, 0.25);
-        }
+        .emotion-btn:hover  { background: rgba(255, 220, 180, 0.12); }
+        .emotion-btn:active { background: rgba(255, 220, 180, 0.28); }
 
         /* Row 1 */
-        #btn-anxious      { top: 22.2%; left: 38%; width: 9%; height: 9%; }
-        #btn-frustrated   { top: 22.2%; left: 54%; width: 9%; height: 9%; }
-
+        #btn-anxious     { top: 22%; left: 31%; width: 15%; height: 9%; }
+        #btn-frustrated  { top: 22%; left: 47%; width: 15%; height: 9%; }
         /* Row 2 */
-        #btn-unworthy     { top: 34.3%; left: 38%; width: 9%; height: 9%; }
-        #btn-ashamed      { top: 34.3%; left: 54%; width: 9%; height: 9%; }
-
+        #btn-unworthy    { top: 34%; left: 31%; width: 15%; height: 9%; }
+        #btn-ashamed     { top: 34%; left: 47%; width: 15%; height: 9%; }
         /* Row 3 */
-        #btn-overwhelmed  { top: 46.4%; left: 38%; width: 9%; height: 9%; }
-        #btn-embarrassed  { top: 46.4%; left: 54%; width: 9%; height: 9%; }
-
+        #btn-overwhelmed { top: 46%; left: 31%; width: 15%; height: 9%; }
+        #btn-embarrassed { top: 46%; left: 47%; width: 15%; height: 9%; }
         /* Row 4 */
-        #btn-heartbroken  { top: 58.7%; left: 38%; width: 9%; height: 9%; }
-        #btn-numb         { top: 58.7%; left: 54%; width: 9%; height: 9%; }
-
+        #btn-heartbroken { top: 58%; left: 31%; width: 15%; height: 9%; }
+        #btn-numb        { top: 58%; left: 47%; width: 15%; height: 9%; }
         /* Row 5 */
-        #btn-guilty       { top: 70.9%; left: 38%; width: 9%; height: 9%; }
-        #btn-lonely       { top: 70.9%; left: 54%; width: 9%; height: 9%; }
+        #btn-guilty      { top: 70%; left: 31%; width: 15%; height: 9%; }
+        #btn-lonely      { top: 70%; left: 47%; width: 15%; height: 9%; }
 
         /* Next arrow */
         #next-btn {
-            position: fixed;
-            bottom: 6%;
-            left: 50%;
+            position: absolute;
+            bottom: 6%; left: 50%;
             transform: translateX(-50%);
-            width: 90px;
-            height: 40px;
+            width: 22%; height: 6%;
             cursor: pointer;
             background: transparent;
-            border: none;
-            z-index: 100;
-            -webkit-tap-highlight-color: rgba(255, 220, 180, 0.3);
-        }
-
-        /* Mobile responsive adjustments */
-        @media (max-width: 768px) {
-            #next-btn {
-                width: 120px;
-                height: 60px;
-                bottom: 4%;
-            }
-
-            .emotion-btn {
-                -webkit-tap-highlight-color: rgba(255, 220, 180, 0.3);
-            }
+            border-radius: 8px;
         }
 
         /* ══════════════════════════════════
-           CARD POPUP OVERLAY
+           CARD POPUP
         ══════════════════════════════════ */
         .popup-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(10, 7, 20, 0.6);
+            background: rgba(10, 7, 20, 0.62);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             z-index: 500;
             align-items: center;
             justify-content: center;
+            padding: 16px;
         }
+        .popup-overlay.active { display: flex; }
 
-        .popup-overlay.active {
-            display: flex;
-        }
-
-        /* 3D card scene */
+        /* 3D scene */
         .card-scene {
             perspective: 1200px;
-            width: min(340px, 88vw);
-            height: min(510px, 82vh);
-            touch-action: pinch-zoom;
+            width: min(340px, 92vw);
+            /* height is auto — card grows with content, no fixed height */
         }
 
         .card-inner {
             position: relative;
             width: 100%;
-            height: 100%;
             transform-style: preserve-3d;
             transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        .card-inner.flipped { transform: rotateY(180deg); }
 
-        .card-inner.flipped {
-            transform: rotateY(180deg);
-        }
-
-        /* Shared face styles */
+        /* Shared face */
         .card-face {
-            position: absolute;
-            inset: 0;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
-            border-radius: 24px;
-            padding: 30px 26px 26px;
+            border-radius: 22px;
+            padding: 26px 22px 22px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
-
-            /* Warm earth glassmorphism */
-            background: rgba(60, 60, 70, 0.45);
+            gap: 12px;
+            max-height: 88vh;
+            overflow-y: auto;
+            /* Warm earth glass */
+            background: rgba(55, 33, 14, 0.52);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(200, 155, 100, 0.28);
-            box-shadow:
-                0 12px 48px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,215,160,0.1);
         }
 
+        /* Back face sits on top of front — both must be present in DOM */
         .card-back-face {
+            position: absolute;
+            top: 0; left: 0; right: 0;
             transform: rotateY(180deg);
         }
 
-        /* Day label */
         .card-day-label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
+            font-size: 11px; font-weight: 600;
+            letter-spacing: 1.8px; text-transform: uppercase;
             color: rgba(200, 155, 100, 0.85);
         }
-
-        /* Emotion title */
         .card-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #61d8e6;
-            line-height: 1.15;
+            font-size: 20px; font-weight: 700;
+            color: #61d8e6; line-height: 1.15;
         }
-
-        /* Divider */
         .card-divider {
             height: 1px;
             background: rgba(200, 155, 100, 0.22);
-            border: none;
+            border: none; flex-shrink: 0;
         }
-
-        /* Front: quote */
         .card-quote {
-            font-size: 11px;
-            font-weight: 700;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.65;
-            border-left: 3px solid rgba(200, 155, 100, 0.65);
-            padding-left: 14px;
+            font-size: 14px; font-style: italic;
+            color: rgba(255,255,255,0.95); line-height: 1.65;
+            border-left: 3px solid rgba(200,155,100,0.65);
+            padding-left: 13px;
         }
-
-        /* Front: reflection */
         .card-reflection {
-            font-size: 10px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.75;
-            flex: 1;
+            font-size: 13px;
+            color: rgba(255,255,255,0.75); line-height: 1.75;
         }
-
-        /* Unlock timer */
         .unlock-timer {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: rgba(200, 155, 100, 0.7);
-        }
-
-        .unlock-dot {
-            width: 6px;
-            height: 6px;
+            display: flex; align-items: center; gap: 8px;
+            font-size: 11.5px; color: rgba(200,155,100,0.7);
             flex-shrink: 0;
-            border-radius: 50%;
-            background: rgba(200, 155, 100, 0.6);
+        }
+        .unlock-dot {
+            width: 6px; height: 6px; flex-shrink: 0;
+            border-radius: 50%; background: rgba(200,155,100,0.6);
             animation: pulse-dot 2s infinite;
         }
-
         @keyframes pulse-dot {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+            0%, 100% { opacity: 0.3; } 50% { opacity: 1; }
         }
 
         /* Back sections */
-        .back-section {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
+        .back-section { display: flex; flex-direction: column; gap: 4px; }
         .back-label {
-            font-size: 10.5px;
-            font-weight: 700;
-            letter-spacing: 1.4px;
-            text-transform: uppercase;
+            font-size: 10px; font-weight: 700;
+            letter-spacing: 1.4px; text-transform: uppercase;
             color: #61d8e6;
         }
-
         .back-text {
-            font-size: 10px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.82);
-            line-height: 1.65;
-            padding: 10px 13px;
-            background: rgba(255, 255, 255, 0.05);
+            font-size: 13px; color: rgba(255,255,255,0.82);
+            line-height: 1.65; padding: 9px 12px;
+            background: rgba(255,255,255,0.05);
             border-radius: 10px;
-            border: 1px solid rgba(200, 155, 100, 0.15);
+            border: 1px solid rgba(200,155,100,0.15);
         }
 
-        /* Loading state */
+        /* Loading */
         .card-loading {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.45);
+            padding: 32px 0; text-align: center;
+            font-size: 14px; color: rgba(255,255,255,0.45);
         }
 
-        /* Action buttons */
-        .card-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 9px;
-            margin-top: auto;
-        }
+        /* Buttons */
+        .card-actions { display: flex; flex-direction: column; gap: 9px; flex-shrink: 0; }
 
-        /* "Go Deeper" — warm earth tone button */
         .btn-deeper {
-            padding: 13px;
-            border-radius: 14px;
-            border: 1px solid rgba(200, 155, 100, 0.5);
-            background: rgba(140, 85, 35, 0.35);
-            color: rgba(255, 255, 255, 0.94);
+            padding: 13px; border-radius: 14px;
+            border: 1px solid rgba(200,155,100,0.5);
+            background: rgba(140,85,35,0.35);
+            color: rgba(255,255,255,0.94);
             font-family: 'Open Sans', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            letter-spacing: 0.3px;
+            font-size: 14px; font-weight: 600;
+            cursor: pointer; transition: all 0.25s ease;
         }
+        .btn-deeper:hover { background: rgba(140,85,35,0.55); border-color: rgba(200,155,100,0.75); }
 
-        .btn-deeper:hover {
-            background: rgba(140, 85, 35, 0.55);
-            border-color: rgba(200, 155, 100, 0.75);
-        }
-
-        /* "Return" — subtle transparent */
         .btn-return {
-            padding: 11px;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 11px; border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.14);
             background: transparent;
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(255,255,255,0.55);
             font-family: 'Open Sans', sans-serif;
-            font-size: 13px;
-            cursor: pointer;
+            font-size: 13px; cursor: pointer;
             transition: all 0.25s ease;
         }
+        .btn-return:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); }
 
-        .btn-return:hover {
-            background: rgba(255, 255, 255, 0.06);
-            color: rgba(255, 255, 255, 0.85);
-        }
+        /* Scrollbar styling inside card */
+        .card-face::-webkit-scrollbar { width: 4px; }
+        .card-face::-webkit-scrollbar-track { background: transparent; }
+        .card-face::-webkit-scrollbar-thumb { background: rgba(200,155,100,0.3); border-radius: 4px; }
     </style>
 </head>
 <body>
 
-    <!-- Background -->
-    <div class="background-container"></div>
+    <img id="bgImg" src="assets/4.png" alt="">
 
-    <!-- ── Emotion Button Overlays ── -->
-    <div class="emotion-btn" id="btn-anxious"     onclick="openCard('anxious')"></div>
-    <div class="emotion-btn" id="btn-frustrated"  onclick="openCard('frustrated')"></div>
-    <div class="emotion-btn" id="btn-unworthy"    onclick="openCard('unworthy')"></div>
-    <div class="emotion-btn" id="btn-ashamed"     onclick="openCard('ashamed')"></div>
-    <div class="emotion-btn" id="btn-overwhelmed" onclick="openCard('overwhelmed')"></div>
-    <div class="emotion-btn" id="btn-embarrassed" onclick="openCard('embarrassed')"></div>
-    <div class="emotion-btn" id="btn-heartbroken" onclick="openCard('heartbroken')"></div>
-    <div class="emotion-btn" id="btn-numb"        onclick="openCard('numb')"></div>
-    <div class="emotion-btn" id="btn-guilty"      onclick="openCard('guilty')"></div>
-    <div class="emotion-btn" id="btn-lonely"      onclick="openCard('lonely')"></div>
+    <div id="overlayWrap">
+        <div class="emotion-btn" id="btn-anxious"     onclick="openCard('anxious')"></div>
+        <div class="emotion-btn" id="btn-frustrated"  onclick="openCard('frustrated')"></div>
+        <div class="emotion-btn" id="btn-unworthy"    onclick="openCard('unworthy')"></div>
+        <div class="emotion-btn" id="btn-ashamed"     onclick="openCard('ashamed')"></div>
+        <div class="emotion-btn" id="btn-overwhelmed" onclick="openCard('overwhelmed')"></div>
+        <div class="emotion-btn" id="btn-embarrassed" onclick="openCard('embarrassed')"></div>
+        <div class="emotion-btn" id="btn-heartbroken" onclick="openCard('heartbroken')"></div>
+        <div class="emotion-btn" id="btn-numb"        onclick="openCard('numb')"></div>
+        <div class="emotion-btn" id="btn-guilty"      onclick="openCard('guilty')"></div>
+        <div class="emotion-btn" id="btn-lonely"      onclick="openCard('lonely')"></div>
+        <div id="next-btn" onclick="window.location.href='meditation.html'"></div>
+    </div>
 
-    <!-- Next arrow → meditation -->
-    <div id="next-btn" onclick="window.location.href='meditation.html'"></div>
-
-    <!-- ══════════════════════════════════
-         CARD POPUP
-    ══════════════════════════════════ -->
+    <!-- Card Popup — outside overlayWrap so it covers full screen -->
     <div class="popup-overlay" id="cardPopup">
         <div class="card-scene">
             <div class="card-inner" id="cardInner">
 
-                <!-- FRONT FACE -->
-                <div class="card-face card-front-face">
+                <!-- FRONT -->
+                <div class="card-face card-front-face" id="cardFront">
                     <div class="card-day-label" id="frontDayLabel">Day 1 of 7</div>
                     <div class="card-title"     id="frontTitle">—</div>
                     <hr class="card-divider">
-
                     <div class="card-loading"   id="frontLoading">Loading your card...</div>
-
                     <blockquote class="card-quote"      id="frontQuote"      style="display:none;"></blockquote>
                     <p          class="card-reflection" id="frontReflection" style="display:none;"></p>
-
                     <div class="unlock-timer" id="unlockTimer" style="display:none;">
                         <span class="unlock-dot"></span>
                         <span id="unlockTimerText">Next card available in 24 hours</span>
                     </div>
-
                     <div class="card-actions" id="frontActions" style="display:none;">
-                        <button class="btn-deeper"  onclick="flipCard()">Go Deeper ↓</button>
-                        <button class="btn-return"  onclick="closeCard()">Return</button>
+                        <button class="btn-deeper" onclick="flipCard()">Go Deeper ↓</button>
+                        <button class="btn-return" onclick="closeCard()">Return</button>
                     </div>
                 </div>
 
-                <!-- BACK FACE -->
-                <div class="card-face card-back-face">
+                <!-- BACK -->
+                <div class="card-face card-back-face" id="cardBack">
                     <div class="card-day-label" id="backDayLabel">Day 1 of 7 · Go Deeper</div>
                     <div class="card-title"     id="backTitle">—</div>
                     <hr class="card-divider">
-
                     <div class="back-section">
                         <div class="back-label">Mantra</div>
                         <div class="back-text" id="backMantra"></div>
@@ -388,149 +265,134 @@
                         <div class="back-label">Action</div>
                         <div class="back-text" id="backAction"></div>
                     </div>
-
                     <div class="card-actions">
                         <button class="btn-return" onclick="closeCard()">Return</button>
                     </div>
                 </div>
 
-            </div><!-- /card-inner -->
-        </div><!-- /card-scene -->
-    </div><!-- /popup-overlay -->
+            </div>
+        </div>
+    </div>
 
     <script>
-        // ── State ──
-        let cardsData = null;
+        // ── Image-aware overlay positioning ──
+        function fitOverlays() {
+            var img = document.getElementById('bgImg');
+            if (!img.naturalWidth) return;
+            var vw = window.innerWidth, vh = window.innerHeight;
+            var ir = img.naturalWidth / img.naturalHeight;
+            var vr = vw / vh;
+            var w, h, x, y;
+            if (vr > ir) { h = vh; w = h * ir; x = (vw - w) / 2; y = 0; }
+            else         { w = vw; h = w / ir; x = 0; y = (vh - h) / 2; }
+            var wrap = document.getElementById('overlayWrap');
+            wrap.style.left = x + 'px'; wrap.style.top = y + 'px';
+            wrap.style.width = w + 'px'; wrap.style.height = h + 'px';
+        }
+        var bgImg = document.getElementById('bgImg');
+        bgImg.onload = fitOverlays;
+        if (bgImg.complete && bgImg.naturalWidth) fitOverlays();
+        window.addEventListener('resize', fitOverlays);
 
-        // ── Human-readable emotion labels ──
-        const emotionLabels = {
-            anxious:     'Anxious',
-            frustrated:  'Frustrated',
-            unworthy:    'Unworthy',
-            ashamed:     'Ashamed',
-            overwhelmed: 'Overwhelmed',
-            embarrassed: 'Embarrassed',
-            heartbroken: 'Heartbroken',
-            numb:        'Numb',
-            guilty:      'Guilty',
-            lonely:      'Lonely'
+        // ── Cards data ──
+        var cardsData = null;
+
+        var emotionLabels = {
+            anxious:'Anxious', frustrated:'Frustrated', unworthy:'Unworthy',
+            ashamed:'Ashamed', overwhelmed:'Overwhelmed', embarrassed:'Embarrassed',
+            heartbroken:'Heartbroken', numb:'Numb', guilty:'Guilty', lonely:'Lonely'
         };
 
-        // ── Load cards.json once, cache it ──
+        // Try assets/cards.json first, fall back to root cards.json
         async function loadCards() {
             if (cardsData) return cardsData;
-            try {
-                const res = await fetch('assets/cards.json');
-                if (!res.ok) throw new Error('Network response not ok');
-                cardsData = await res.json();
-                return cardsData;
-            } catch (e) {
-                console.error('cards.json load failed:', e);
-                return null;
+            var paths = ['assets/cards.json', 'cards.json'];
+            for (var i = 0; i < paths.length; i++) {
+                try {
+                    var res = await fetch(paths[i]);
+                    if (res.ok) { cardsData = await res.json(); return cardsData; }
+                } catch(e) { /* try next */ }
             }
+            return null;
         }
 
-        // ── Day unlock logic ──
-        // Stores first-touch timestamp per emotion in localStorage.
-        // Returns current day (1–7).
+        // Day unlock via localStorage — first touch = Day 1, +1 per 24hrs, max 7
         function getDayNumber(emotion) {
-            const key   = `rtc_start_${emotion}`;
-            const now   = Date.now();
-            const stored = localStorage.getItem(key);
-
-            if (!stored) {
-                localStorage.setItem(key, now.toString());
-                return 1;
-            }
-
-            const ms       = now - parseInt(stored, 10);
-            const days     = Math.floor(ms / (1000 * 60 * 60 * 24));
+            var key = 'rtc_start_' + emotion;
+            var now = Date.now();
+            var stored = localStorage.getItem(key);
+            if (!stored) { localStorage.setItem(key, now.toString()); return 1; }
+            var days = Math.floor((now - parseInt(stored, 10)) / 86400000);
             return Math.min(days + 1, 7);
         }
 
-        // ── Open card popup ──
         async function openCard(emotion) {
-            const label = emotionLabels[emotion];
-            const day   = getDayNumber(emotion);
+            var label = emotionLabels[emotion];
+            var day   = getDayNumber(emotion);
 
-            // Reset to front face
+            // Reset flip
             document.getElementById('cardInner').classList.remove('flipped');
 
-            // Set day labels + titles
-            document.getElementById('frontDayLabel').textContent = `Day ${day} of 7`;
+            // Set labels
+            document.getElementById('frontDayLabel').textContent = 'Day ' + day + ' of 7';
             document.getElementById('frontTitle').textContent    = label;
-            document.getElementById('backDayLabel').textContent  = `Day ${day} of 7 · Go Deeper`;
+            document.getElementById('backDayLabel').textContent  = 'Day ' + day + ' of 7 · Go Deeper';
             document.getElementById('backTitle').textContent     = label;
 
             // Reset front visibility
-            document.getElementById('frontLoading').style.display    = 'flex';
+            document.getElementById('frontLoading').style.display    = 'block';
+            document.getElementById('frontLoading').textContent      = 'Loading your card...';
             document.getElementById('frontQuote').style.display      = 'none';
             document.getElementById('frontReflection').style.display = 'none';
             document.getElementById('frontActions').style.display    = 'none';
             document.getElementById('unlockTimer').style.display     = 'none';
 
-            // Show popup
             document.getElementById('cardPopup').classList.add('active');
 
-            // Fetch data
-            const data = await loadCards();
-
+            var data = await loadCards();
             if (!data) {
-                document.getElementById('frontLoading').textContent =
-                    'Could not load card. Please check your connection.';
+                document.getElementById('frontLoading').textContent = 'Could not load card. Please check cards.json is in the assets/ folder.';
                 return;
             }
 
-            const emotionDays = data[emotion];
-            if (!emotionDays || !emotionDays[day - 1]) {
-                document.getElementById('frontLoading').textContent =
-                    'This card is coming soon. Check back shortly!';
+            var days = data[emotion];
+            if (!days || !days[day - 1]) {
+                document.getElementById('frontLoading').textContent = 'Card content for this day is coming soon.';
                 return;
             }
 
-            const card = emotionDays[day - 1];
+            var card = days[day - 1];
 
-            // Populate front
-            document.getElementById('frontQuote').textContent      = `"${card.front.quote}"`;
+            document.getElementById('frontQuote').textContent      = '\u201C' + card.front.quote + '\u201D';
             document.getElementById('frontReflection').textContent = card.front.reflection;
+            document.getElementById('backMantra').textContent      = card.back.mantra;
+            document.getElementById('backReframe').textContent     = card.back.reframe;
+            document.getElementById('backAction').textContent      = card.back.action;
 
-            // Populate back
-            document.getElementById('backMantra').textContent  = card.back.mantra;
-            document.getElementById('backReframe').textContent = card.back.reframe;
-            document.getElementById('backAction').textContent  = card.back.action;
-
-            // Reveal content
             document.getElementById('frontLoading').style.display    = 'none';
             document.getElementById('frontQuote').style.display      = 'block';
             document.getElementById('frontReflection').style.display = 'block';
             document.getElementById('frontActions').style.display    = 'flex';
 
-            // Show unlock notice if not on final day
             if (day < 7) {
-                document.getElementById('unlockTimerText').textContent =
-                    'Next card available in 24 hours';
+                document.getElementById('unlockTimerText').textContent = 'Next card available in 24 hours';
                 document.getElementById('unlockTimer').style.display = 'flex';
             }
         }
 
-        // ── Flip to back ──
-        function flipCard() {
-            document.getElementById('cardInner').classList.add('flipped');
-        }
-
-        // ── Close popup ──
+        function flipCard()  { document.getElementById('cardInner').classList.add('flipped'); }
         function closeCard() {
             document.getElementById('cardPopup').classList.remove('active');
             document.getElementById('cardInner').classList.remove('flipped');
         }
 
-        // ── Tap outside card to close ──
+        // Tap outside card to close
         document.getElementById('cardPopup').addEventListener('click', function(e) {
             if (e.target === this) closeCard();
         });
 
-        // ── Preload data on page ready ──
-        window.addEventListener('load', () => loadCards());
+        // Preload on page ready
+        window.addEventListener('load', loadCards);
     </script>
 </body>
 </html>
