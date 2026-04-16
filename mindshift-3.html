@@ -94,11 +94,13 @@
             transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-inner.flipped { transform: rotateY(180deg); }
+        .card-inner.flipped .card-front-face { visibility: hidden; }
 
         /* Shared face */
         .card-face {
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
+            visibility: visible;
             border-radius: 22px;
             padding: 26px 22px 22px;
             display: flex;
@@ -185,14 +187,14 @@
 
         .btn-deeper {
             padding: 13px; border-radius: 14px;
-            border: 1px solid rgba(200,155,100,0.5);
-            background: rgba(140,85,35,0.35);
+            border: 1px solid rgba(200,155,100,0.35);
+            background: rgba(255,255,255,0.08);
             color: rgba(255,255,255,0.94);
             font-family: 'Open Sans', sans-serif;
             font-size: 14px; font-weight: 600;
             cursor: pointer; transition: all 0.25s ease;
         }
-        .btn-deeper:hover { background: rgba(140,85,35,0.55); border-color: rgba(200,155,100,0.75); }
+        .btn-deeper:hover { background: rgba(255,255,255,0.15); border-color: rgba(200,155,100,0.55); }
 
         .btn-return {
             padding: 11px; border-radius: 14px;
