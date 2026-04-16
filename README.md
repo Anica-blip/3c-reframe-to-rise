@@ -79,6 +79,6 @@ HOME
 
 ## 🤝 Built By
 
-Built by Claude (Anthropic) × Chef Anica ❤️ · 3C Thread To Success Cooking Lab 🧪
+Designed & built with ❤️ by Claude (Anthropic) × Chef Anica · 3C Thread To Success Cooking Lab 🧪👨‍🍳
 
-*"Think Smart, Not Harder"*
+*"Think Smarter, Not Harder - Zero Shortcuts"*
