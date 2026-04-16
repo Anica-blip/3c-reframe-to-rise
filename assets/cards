@@ -1,0 +1,493 @@
+{
+  "anxious": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "Courage is not the absence of fear, but action in spite of it.",
+        "reflection": "Anxiety often signals that something matters to you deeply. Take a moment to breathe slowly and recognise that feeling anxious is natural. Your courage grows each time you move forward despite the fear."
+      },
+      "back": {
+        "mantra": "I breathe in calm, I breathe out fear.",
+        "reframe": "My anxiety shows me what matters. I can take one small step forward.",
+        "action": "Practice 4-7-8 breathing: inhale for 4, hold for 7, exhale for 8. Repeat 3 times."
+      }
+    },
+    {
+      "day": 2,
+      "front": {
+        "quote": "You don't have to control your thoughts. You just have to stop letting them control you.",
+        "reflection": "Anxiety loves to predict the worst. Today, notice the thought without becoming it. You are the observer — not the storm."
+      },
+      "back": {
+        "mantra": "I am safe in this moment. Only this moment is real.",
+        "reframe": "My thoughts are visitors, not residents. I choose what stays.",
+        "action": "Write down the worry. Then write one reason it might not happen. Read it back slowly."
+      }
+    },
+    {
+      "day": 3,
+      "front": {
+        "quote": "Worry is a misuse of imagination.",
+        "reflection": "Your mind is powerful. Right now it may be using that power against you. Gently redirect it — what is one thing going right today?"
+      },
+      "back": {
+        "mantra": "I redirect my mind toward what is good and real.",
+        "reframe": "My imagination is a gift. I choose to use it to build, not to fear.",
+        "action": "List 3 things within arm's reach right now. Name them slowly. Feel yourself return to the room."
+      }
+    },
+    {
+      "day": 4,
+      "front": {
+        "quote": "Almost everything will work again if you unplug it for a few minutes — including you.",
+        "reflection": "Rest is not weakness. Stepping back from the noise is one of the bravest things you can do for yourself today."
+      },
+      "back": {
+        "mantra": "Rest is productive. I give myself permission to pause.",
+        "reframe": "Slowing down is not falling behind. It is how I stay strong.",
+        "action": "Set a 5-minute timer. Do nothing. No phone, no task. Just sit and breathe."
+      }
+    },
+    {
+      "day": 5,
+      "front": {
+        "quote": "You have survived every difficult day so far. Your track record is 100%.",
+        "reflection": "Look back at what you have already come through. That resilience is not luck — it is you. You carried yourself here."
+      },
+      "back": {
+        "mantra": "I have overcome before. I will overcome again.",
+        "reframe": "My history of survival is proof of my strength.",
+        "action": "Name one hard thing you have already survived. Say out loud: 'I did that. I am still here.'"
+      }
+    },
+    {
+      "day": 6,
+      "front": {
+        "quote": "Peace is the result of retraining your mind to process life as it is, rather than as you think it should be.",
+        "reflection": "Anxiety often grows from the gap between expectation and reality. Today, soften your grip on how things 'should' look."
+      },
+      "back": {
+        "mantra": "I release the need to control what I cannot. I trust the process.",
+        "reframe": "Uncertainty is not danger. It is simply unknown — and the unknown can hold good things too.",
+        "action": "Write one thing you are trying to control that is outside your power. Then write: 'I release this.'"
+      }
+    },
+    {
+      "day": 7,
+      "front": {
+        "quote": "You are braver than you believe, stronger than you seem, and smarter than you think.",
+        "reflection": "You have shown up for seven days. That is not small. That is a choice you made for yourself — and it matters more than you know."
+      },
+      "back": {
+        "mantra": "I am becoming the version of me who no longer fears this.",
+        "reframe": "Every day I showed up was a vote for who I am choosing to become.",
+        "action": "Close your eyes. Place one hand on your heart. Say: 'I am proud of you.' Mean it."
+      }
+    }
+  ],
+
+  "frustrated": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "Frustration is the first step toward change. Only those who are frustrated make a change.",
+        "reflection": "Frustration is energy — and energy is power. The fact that something bothers you means you care. That caring is a strength, not a flaw."
+      },
+      "back": {
+        "mantra": "My frustration is showing me what I value. I use this energy wisely.",
+        "reframe": "Feeling frustrated means I have standards. I can channel this into positive action.",
+        "action": "Write what is frustrating you in one sentence. Then write one thing — however small — that you can actually do about it today."
+      }
+    },
+    {
+      "day": 2,
+      "front": { "quote": "Jan to complete — Day 2 Frustrated", "reflection": "Jan to complete — Day 2 Frustrated reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 3,
+      "front": { "quote": "Jan to complete — Day 3 Frustrated", "reflection": "Jan to complete — Day 3 Frustrated reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 4,
+      "front": { "quote": "Jan to complete — Day 4 Frustrated", "reflection": "Jan to complete — Day 4 Frustrated reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 5,
+      "front": { "quote": "Jan to complete — Day 5 Frustrated", "reflection": "Jan to complete — Day 5 Frustrated reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 6,
+      "front": { "quote": "Jan to complete — Day 6 Frustrated", "reflection": "Jan to complete — Day 6 Frustrated reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 7,
+      "front": { "quote": "Jan to complete — Day 7 Frustrated", "reflection": "Jan to complete — Day 7 Frustrated reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    }
+  ],
+
+  "unworthy": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "You alone are enough. You have nothing to prove to anybody.",
+        "reflection": "Feeling unworthy is one of the heaviest things a person carries. But worthiness was never something to be earned — it is something you were born with. You are here. That is enough."
+      },
+      "back": {
+        "mantra": "I am worthy simply because I exist. No proof required.",
+        "reframe": "My worth is not measured by my output, my appearance, or anyone's opinion of me.",
+        "action": "Look in a mirror. Say your own name and add: 'You are enough today.' Do it even if it feels strange."
+      }
+    },
+    {
+      "day": 2,
+      "front": { "quote": "Jan to complete — Day 2 Unworthy", "reflection": "Jan to complete — Day 2 Unworthy reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 3,
+      "front": { "quote": "Jan to complete — Day 3 Unworthy", "reflection": "Jan to complete — Day 3 Unworthy reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 4,
+      "front": { "quote": "Jan to complete — Day 4 Unworthy", "reflection": "Jan to complete — Day 4 Unworthy reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 5,
+      "front": { "quote": "Jan to complete — Day 5 Unworthy", "reflection": "Jan to complete — Day 5 Unworthy reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 6,
+      "front": { "quote": "Jan to complete — Day 6 Unworthy", "reflection": "Jan to complete — Day 6 Unworthy reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 7,
+      "front": { "quote": "Jan to complete — Day 7 Unworthy", "reflection": "Jan to complete — Day 7 Unworthy reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    }
+  ],
+
+  "ashamed": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "Shame corrodes the very part of us that believes we are capable of change.",
+        "reflection": "Shame tells you that you are the mistake — but that is never true. You may have made a mistake. That is something you did, not something you are. There is a difference, and it matters."
+      },
+      "back": {
+        "mantra": "I am not my mistakes. I am someone learning to do better.",
+        "reframe": "What I did does not define what I am capable of becoming.",
+        "action": "Write the thing you feel ashamed of. Below it, write: 'This was a moment, not my identity.' Fold the paper and set it aside."
+      }
+    },
+    {
+      "day": 2,
+      "front": { "quote": "Jan to complete — Day 2 Ashamed", "reflection": "Jan to complete — Day 2 Ashamed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 3,
+      "front": { "quote": "Jan to complete — Day 3 Ashamed", "reflection": "Jan to complete — Day 3 Ashamed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 4,
+      "front": { "quote": "Jan to complete — Day 4 Ashamed", "reflection": "Jan to complete — Day 4 Ashamed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 5,
+      "front": { "quote": "Jan to complete — Day 5 Ashamed", "reflection": "Jan to complete — Day 5 Ashamed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 6,
+      "front": { "quote": "Jan to complete — Day 6 Ashamed", "reflection": "Jan to complete — Day 6 Ashamed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 7,
+      "front": { "quote": "Jan to complete — Day 7 Ashamed", "reflection": "Jan to complete — Day 7 Ashamed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    }
+  ],
+
+  "overwhelmed": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "You do not have to do everything. You just have to do the next right thing.",
+        "reflection": "When everything feels like too much, the mind freezes trying to hold it all. You don't need to carry it all right now. Set everything down for one moment, and just breathe. One thing at a time."
+      },
+      "back": {
+        "mantra": "I only need to do the next small thing. That is enough.",
+        "reframe": "I am not behind. I am doing the best I can with what I have right now.",
+        "action": "Write down everything in your head. Circle just ONE thing. Do only that thing today. The rest can wait."
+      }
+    },
+    {
+      "day": 2,
+      "front": { "quote": "Jan to complete — Day 2 Overwhelmed", "reflection": "Jan to complete — Day 2 Overwhelmed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 3,
+      "front": { "quote": "Jan to complete — Day 3 Overwhelmed", "reflection": "Jan to complete — Day 3 Overwhelmed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 4,
+      "front": { "quote": "Jan to complete — Day 4 Overwhelmed", "reflection": "Jan to complete — Day 4 Overwhelmed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 5,
+      "front": { "quote": "Jan to complete — Day 5 Overwhelmed", "reflection": "Jan to complete — Day 5 Overwhelmed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 6,
+      "front": { "quote": "Jan to complete — Day 6 Overwhelmed", "reflection": "Jan to complete — Day 6 Overwhelmed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 7,
+      "front": { "quote": "Jan to complete — Day 7 Overwhelmed", "reflection": "Jan to complete — Day 7 Overwhelmed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    }
+  ],
+
+  "embarrassed": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "No one can make you feel inferior without your consent.",
+        "reflection": "Embarrassment is the gap between who you wanted to be in that moment and what happened instead. But that gap is human — it is where growth lives. You are not less for having felt this."
+      },
+      "back": {
+        "mantra": "I release this moment. It does not own me.",
+        "reframe": "Everyone has moments they wish went differently. Mine does not define my story.",
+        "action": "Think of the moment. Now imagine your closest friend telling you about it. What would you say to them? Say that to yourself."
+      }
+    },
+    {
+      "day": 2,
+      "front": { "quote": "Jan to complete — Day 2 Embarrassed", "reflection": "Jan to complete — Day 2 Embarrassed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 3,
+      "front": { "quote": "Jan to complete — Day 3 Embarrassed", "reflection": "Jan to complete — Day 3 Embarrassed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 4,
+      "front": { "quote": "Jan to complete — Day 4 Embarrassed", "reflection": "Jan to complete — Day 4 Embarrassed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 5,
+      "front": { "quote": "Jan to complete — Day 5 Embarrassed", "reflection": "Jan to complete — Day 5 Embarrassed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 6,
+      "front": { "quote": "Jan to complete — Day 6 Embarrassed", "reflection": "Jan to complete — Day 6 Embarrassed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 7,
+      "front": { "quote": "Jan to complete — Day 7 Embarrassed", "reflection": "Jan to complete — Day 7 Embarrassed reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    }
+  ],
+
+  "heartbroken": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "The heart was made to be broken — and to heal, and to love again.",
+        "reflection": "Heartbreak is proof that you were brave enough to feel deeply. That is not weakness. Grief is love with nowhere to go right now. Be gentle with yourself — healing is not linear, and you are allowed to be exactly where you are."
+      },
+      "back": {
+        "mantra": "I honour my grief. I also honour my capacity to heal.",
+        "reframe": "Being heartbroken shows how fully I loved. That same heart will feel joy again.",
+        "action": "Place one hand on your chest. Feel your heartbeat. Say: 'You are still here. You are still working. I trust you.'"
+      }
+    },
+    {
+      "day": 2,
+      "front": { "quote": "Jan to complete — Day 2 Heartbroken", "reflection": "Jan to complete — Day 2 Heartbroken reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 3,
+      "front": { "quote": "Jan to complete — Day 3 Heartbroken", "reflection": "Jan to complete — Day 3 Heartbroken reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 4,
+      "front": { "quote": "Jan to complete — Day 4 Heartbroken", "reflection": "Jan to complete — Day 4 Heartbroken reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 5,
+      "front": { "quote": "Jan to complete — Day 5 Heartbroken", "reflection": "Jan to complete — Day 5 Heartbroken reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 6,
+      "front": { "quote": "Jan to complete — Day 6 Heartbroken", "reflection": "Jan to complete — Day 6 Heartbroken reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 7,
+      "front": { "quote": "Jan to complete — Day 7 Heartbroken", "reflection": "Jan to complete — Day 7 Heartbroken reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    }
+  ],
+
+  "numb": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "Numbness is not emptiness — it is protection. Your body knew you needed a rest from feeling.",
+        "reflection": "When you feel nothing, it is often because you have felt too much. Numbness is your system's way of saying 'I needed a break.' You are not broken. You are recovering. Feelings will return when you are ready."
+      },
+      "back": {
+        "mantra": "I allow myself to feel at my own pace. I am safe.",
+        "reframe": "Numbness was protecting me. Now I can gently choose to return.",
+        "action": "Hold something warm — a cup, your own hands. Notice the temperature. Stay with that sensation for 60 seconds. Let your body remember it can feel."
+      }
+    },
+    {
+      "day": 2,
+      "front": { "quote": "Jan to complete — Day 2 Numb", "reflection": "Jan to complete — Day 2 Numb reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 3,
+      "front": { "quote": "Jan to complete — Day 3 Numb", "reflection": "Jan to complete — Day 3 Numb reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 4,
+      "front": { "quote": "Jan to complete — Day 4 Numb", "reflection": "Jan to complete — Day 4 Numb reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 5,
+      "front": { "quote": "Jan to complete — Day 5 Numb", "reflection": "Jan to complete — Day 5 Numb reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 6,
+      "front": { "quote": "Jan to complete — Day 6 Numb", "reflection": "Jan to complete — Day 6 Numb reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 7,
+      "front": { "quote": "Jan to complete — Day 7 Numb", "reflection": "Jan to complete — Day 7 Numb reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    }
+  ],
+
+  "guilty": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "Guilt is the conscience's way of caring. Use it to grow, not to punish yourself forever.",
+        "reflection": "Guilt means your values are alive in you. You know what matters. The question now is not whether you feel guilty — it is whether you use that feeling as a stepping stone or a prison. You get to choose."
+      },
+      "back": {
+        "mantra": "I acknowledge what happened. I choose to learn and move forward.",
+        "reframe": "Guilt is information, not a life sentence. I can make amends and grow.",
+        "action": "Write one thing you could do — even symbolically — to make peace with this guilt. Then decide if and when you will do it."
+      }
+    },
+    {
+      "day": 2,
+      "front": { "quote": "Jan to complete — Day 2 Guilty", "reflection": "Jan to complete — Day 2 Guilty reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 3,
+      "front": { "quote": "Jan to complete — Day 3 Guilty", "reflection": "Jan to complete — Day 3 Guilty reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 4,
+      "front": { "quote": "Jan to complete — Day 4 Guilty", "reflection": "Jan to complete — Day 4 Guilty reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 5,
+      "front": { "quote": "Jan to complete — Day 5 Guilty", "reflection": "Jan to complete — Day 5 Guilty reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 6,
+      "front": { "quote": "Jan to complete — Day 6 Guilty", "reflection": "Jan to complete — Day 6 Guilty reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 7,
+      "front": { "quote": "Jan to complete — Day 7 Guilty", "reflection": "Jan to complete — Day 7 Guilty reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    }
+  ],
+
+  "lonely": [
+    {
+      "day": 1,
+      "front": {
+        "quote": "The soul that sees beauty may sometimes walk alone — but it is never truly alone.",
+        "reflection": "Loneliness can feel like being invisible in a crowded world. But your presence matters — even when it feels unseen. Right now, another person somewhere is feeling exactly what you feel. You are more connected than you know."
+      },
+      "back": {
+        "mantra": "I am connected to something greater than what I can see right now.",
+        "reframe": "Feeling lonely means I value connection. That desire is beautiful, not a burden.",
+        "action": "Send one message today — to anyone. A friend, a family member, even a kind comment online. Let yourself reach out, even in a small way."
+      }
+    },
+    {
+      "day": 2,
+      "front": { "quote": "Jan to complete — Day 2 Lonely", "reflection": "Jan to complete — Day 2 Lonely reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 3,
+      "front": { "quote": "Jan to complete — Day 3 Lonely", "reflection": "Jan to complete — Day 3 Lonely reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 4,
+      "front": { "quote": "Jan to complete — Day 4 Lonely", "reflection": "Jan to complete — Day 4 Lonely reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 5,
+      "front": { "quote": "Jan to complete — Day 5 Lonely", "reflection": "Jan to complete — Day 5 Lonely reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 6,
+      "front": { "quote": "Jan to complete — Day 6 Lonely", "reflection": "Jan to complete — Day 6 Lonely reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    },
+    {
+      "day": 7,
+      "front": { "quote": "Jan to complete — Day 7 Lonely", "reflection": "Jan to complete — Day 7 Lonely reflection." },
+      "back": { "mantra": "Jan to complete.", "reframe": "Jan to complete.", "action": "Jan to complete." }
+    }
+  ]
+}
